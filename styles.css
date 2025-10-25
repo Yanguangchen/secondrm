@@ -578,7 +578,8 @@ body {
 }
 .behind-figure img {
   width: 420px;
-  height: 300px;
+  height: auto;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 6px;
 }
