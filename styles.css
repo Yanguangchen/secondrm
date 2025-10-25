@@ -30,6 +30,9 @@
 .contact-right {
   line-height: 1.9;
 }
+.contact-right p {
+  color: #fff;
+}
 .contact-link {
   color: #eaeaea;
   text-decoration: none;
@@ -211,7 +214,8 @@ p {
   background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   backdrop-filter: blur(14px) saturate(140%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35), 0 8px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 8px 40px rgba(0, 0, 0, 0.12);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -557,12 +561,13 @@ body {
 .behind .container {
   max-width: 1000px;
 }
-.behind-top {
+.behind-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   align-items: end;
   margin-bottom: 24px;
+  align-items: center;
 }
 .behind-title .kicker {
   color: #ffeae6;
@@ -588,6 +593,15 @@ body {
   margin-top: 6px;
   color: #fff;
   opacity: 0.9;
+}
+.behind-text {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  row-gap: 14px;
+}
+.behind-text .copy p {
+  color: #ffeae6;
 }
 .behind-copy {
   display: grid;
@@ -620,7 +634,7 @@ body {
 }
 
 @media (max-width: 860px) {
-  .behind-top {
+  .behind-grid {
     grid-template-columns: 1fr;
   }
   .behind-figure {
@@ -631,10 +645,6 @@ body {
     width: 90%;
     max-width: 520px;
     height: auto;
-  }
-  .behind-copy {
-    grid-template-columns: 1fr;
-    row-gap: 24px;
   }
 }
 .item-title {
@@ -729,7 +739,8 @@ footer {
     background: rgba(255, 255, 255, 0.18);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     backdrop-filter: blur(14px) saturate(140%);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35), 0 8px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+      0 8px 40px rgba(0, 0, 0, 0.12);
     padding: 24px;
     display: flex;
     flex-direction: column;
