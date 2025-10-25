@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Behind Second Room</title>
+    <link rel="icon" href="icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Behind Second Room" />
+    <meta property="og:image" content="icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Behind Second Room" />
+    <meta name="twitter:image" content="icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="canonical" href="https://www.secondrm.com/" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-grid">
+        <div class="brand">
+          <a href="index.html" class="brand-link" aria-label="Second Room home">
+            <img class="brand-logo" src="banner.jpg" alt="Second Room" />
+          </a>
+        </div>
+        <button class="menu-toggle" aria-controls="behind-nav" aria-expanded="false" title="Menu">☰</button>
+        <nav id="behind-nav" class="nav" aria-label="Primary">
+          <button class="menu-close" aria-label="Close menu">✕</button>
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="our-offerings.html">Our Offerings</a>
+          <a class="nav-link active" href="behind-sr.html">Behind SR</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="behind">
+        <div class="container">
+          <div class="behind-top">
+            <div class="behind-title reveal">
+              <div class="kicker">Behind</div>
+              <h1>Second Room</h1>
+            </div>
+            <figure class="behind-figure reveal reveal-delay-1">
+              <img src="behind-sr.jpg" alt="Grace Chen speaking" />
+              <figcaption>Grace Chen · Founder & Principal</figcaption>
+            </figure>
+          </div>
+          <div class="behind-copy reveal reveal-delay-2">
+            <div class="col">
+              <p>
+                Founded by Grace Chen, a strategist with nearly two decades of
+                experience in investor relations and capital-markets
+                communication, Second Room draws on her work with boards,
+                C-suites, and leading global investors — from sovereign wealth
+                funds to major asset managers across Asia, Europe, and the U.S.
+              </p>
+            </div>
+            <div class="col">
+              <p>
+                As former Head of Group Investor Relations at CapitaLand
+                Investment (CLI), one of Asia’s largest listed real-asset
+                managers with over S$110 billion in AUM, Grace led the Group’s
+                IR function from 2018 to 2025, shaping how the company engaged
+                investors through major milestones — including the S$11 billion
+                Ascendas-Singbridge merger and the 2021 listing of CLI.
+              </p>
+            </div>
+          </div>
+          <div class="behind-cta reveal reveal-delay-3">
+            <a class="button" href="mailto:grace@secondrm.com">View Grace’s LinkedIn
+              <span class="in-badge" aria-hidden="true">in</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© <span id="y"></span> Second Room</div>
+    </footer>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      (function(){
+        const btn = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('behind-nav');
+        if (btn && nav) {
+          const toggle = () => {
+            const open = nav.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('no-scroll', open);
+          };
+          btn.addEventListener('click', toggle);
+          const closeBtn = nav.querySelector('.menu-close');
+          if (closeBtn) closeBtn.addEventListener('click', () => { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); document.body.classList.remove('no-scroll'); });
+          document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); document.body.classList.remove('no-scroll'); }});
+        }
+      })();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
+
+

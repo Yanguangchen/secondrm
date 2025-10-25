@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About — Second Room</title>
+    <link rel="icon" href="icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="icon" sizes="192x192" href="icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About — Second Room" />
+    <meta
+      property="og:description"
+      content="About Second Room: a strategy platform helping leaders interpret signals, frame conviction, and engage with clarity."
+    />
+    <meta property="og:image" content="icon.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Second Room icon" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="About — Second Room" />
+    <meta
+      name="twitter:description"
+      content="A strategy platform for founders, leaders, and institutions who shape markets and meaning."
+    />
+    <meta name="twitter:image" content="icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="canonical" href="https://www.secondrm.com/" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-grid">
+        <div class="brand">
+          <a href="index.html" class="brand-link" aria-label="Second Room home">
+            <img class="brand-logo" src="banner.jpg" alt="Second Room" />
+          </a>
+        </div>
+        <button
+          class="menu-toggle"
+          aria-controls="about-nav"
+          aria-expanded="false"
+          title="Menu"
+        >
+          ☰
+        </button>
+        <nav id="about-nav" class="nav" aria-label="Primary">
+          <button class="menu-close" aria-label="Close menu">✕</button>
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link active" href="about.html">About</a>
+          <a class="nav-link" href="our-offerings.html">Our Offerings</a>
+          <a class="nav-link" href="behind-sr.html">Behind SR</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="banner">
+      <video class="banner-bg" src="clarity-stream.mp4" autoplay muted loop playsinline></video>
+      <div class="container banner-inner">
+        <div class="reveal">
+          <div class="kicker">About</div>
+          <h1>Second Room</h1>
+          <img class="mark-img" src="door.png" alt="Door icon" />
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p>
+            A strategy platform for founders, leaders, and institutions who
+            shape markets and meaning.
+          </p>
+          <p class="reveal reveal-delay-2">
+            We help decision‑makers interpret signals, frame conviction, and
+            engage with clarity — shaping the conversations that move markets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 30px">Our Strategy</h2>
+        <div class="grid-2">
+          <div class="lead reveal">
+            <p>
+              <strong>Second Room</strong> is structured around three
+              complementary disciplines — each addressing a different dimension
+              of how conviction is built and expressed.
+            </p>
+          </div>
+          <div class="list">
+            <div class="reveal strategy-item">
+              <img class="strategy-icon" src="shape.png" alt="Shape icon" />
+              <div>
+                <div class="item-title">Shape — Where we advise.</div>
+                <p class="muted">
+                  Helping leaders define and communicate conviction in moments
+                  that shape market perception.
+                </p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-1 strategy-item">
+              <img class="strategy-icon" src="equip.png" alt="Equip icon" />
+              <div>
+                <div class="item-title">Equip — Where we build.</div>
+                <p class="muted">
+                  Turning our experience and systems of thinking into teachable,
+                  scalable tools.
+                </p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-2 strategy-item">
+              <img class="strategy-icon" src="curate.png" alt="Curate icon" />
+              <div>
+                <div class="item-title">Curate — Where we extend.</div>
+                <p class="muted">
+                  Collaborating with corporates and institutions to explore
+                  ideas that connect capital, confidence, and culture.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">© <span id="y"></span> Second Room</div>
+    </footer>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      // Mobile menu toggle for About
+      (function () {
+        const btn = document.querySelector(".menu-toggle");
+        const nav = document.getElementById("about-nav");
+        if (btn && nav) {
+          const toggle = () => {
+            const open = nav.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", String(open));
+            document.body.classList.toggle("no-scroll", open);
+          };
+          btn.addEventListener("click", toggle);
+          const closeBtn = nav.querySelector(".menu-close");
+          if (closeBtn)
+            closeBtn.addEventListener("click", () => {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            });
+          nav.addEventListener("click", (e) => {
+            if (e.target.closest("a")) {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            }
+          });
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            }
+          });
+        }
+      })();
+      // Reveal animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
