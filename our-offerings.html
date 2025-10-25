@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Our Offerings — Second Room</title>
+    <link rel="icon" href="icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="icon" sizes="192x192" href="icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Our Offerings — Second Room" />
+    <meta property="og:description" content="Explore Second Room's offerings across advisory, learning frameworks, and collaborations." />
+    <meta property="og:image" content="icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Our Offerings — Second Room" />
+    <meta name="twitter:description" content="Advisory, learning frameworks, and collaborations that move markets." />
+    <meta name="twitter:image" content="icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-grid">
+        <div class="brand">
+          <a href="index.html" class="brand-link" aria-label="Second Room home">
+            <img class="brand-logo" src="banner.jpg" alt="Second Room" />
+          </a>
+        </div>
+        <button class="menu-toggle" aria-controls="offerings-nav" aria-expanded="false" title="Menu">☰</button>
+        <nav id="offerings-nav" class="nav" aria-label="Primary">
+          <button class="menu-close" aria-label="Close menu">✕</button>
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link active" href="our-offerings.html">Our Offerings</a>
+          <a class="nav-link" href="behind-sr.html">Behind SR</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section offerings">
+        <div class="container flex-center">
+          <h2 class="offerings-heading" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(2rem,4.4vw,3.2rem);">Our Offerings</h2>
+          <div class="off-grid">
+            <article class="off-card reveal">
+              <div class="off-media">
+                <img src="offering1.jpg" alt="Backstage Strategist" />
+              </div>
+              <h3 class="off-title">Backstage Strategist</h3>
+              <div class="off-subtitle">Capital Markets IR Advisory</div>
+              <p class="off-copy">Helping founders and corporate leaders understand investor logic, align their story, and project confidence in high‑stakes moments. Bespoke advisory tailored to each transaction, challenge, or strategic inflection point.</p>
+            </article>
+            <article class="off-card reveal reveal-delay-1">
+              <div class="off-media">
+                <img src="offering2.jpg" alt="SR Academy" />
+              </div>
+              <h3 class="off-title">SR Academy</h3>
+              <div class="off-subtitle">Learning & Frameworks</div>
+              <p class="off-copy">Equipping leaders and teams with The Second
+                Room System™ a structured approach that brings together finance, strategy, and storytelling to build alignment, confidence, and conviction.</p>
+            </article>
+            <article class="off-card reveal reveal-delay-2">
+              <div class="off-media">
+                <img src="offering3.jpg" alt="SR Studio" />
+              </div>
+              <h3 class="off-title">SR Studio</h3>
+              <div class="off-subtitle">Thought Leadership & Collaborations</div>
+              <p class="off-copy">Partnering with corporates and institutions to design and moderate thought‑leadership experiences that connect strategy, markets, and meaning — shaping conversations that influence capital and confidence.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© <span id="y"></span> Second Room</div>
+    </footer>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      // Mobile menu toggle
+      (function(){
+        const btn = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('offerings-nav');
+        if (btn && nav) {
+          const toggle = () => {
+            const open = nav.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('no-scroll', open);
+          };
+          btn.addEventListener('click', toggle);
+          const closeBtn = nav.querySelector('.menu-close');
+          if (closeBtn) closeBtn.addEventListener('click', () => { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); document.body.classList.remove('no-scroll'); });
+          nav.addEventListener('click', (e) => {
+            if (e.target.closest('a')) { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); document.body.classList.remove('no-scroll'); }
+          });
+          document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); document.body.classList.remove('no-scroll'); } });
+        }
+      })();
+      // Reveal
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+  
+</html>
+
+
