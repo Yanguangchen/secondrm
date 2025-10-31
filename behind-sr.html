@@ -66,7 +66,7 @@
       }
     </script>
   </head>
-  <body>
+  <body class="behind-body">
     <header class="site-header">
       <div class="container header-grid">
         <div class="brand">
@@ -93,7 +93,7 @@
       </div>
     </header>
 
-    <main style="height: 100svh;">
+    <main>
       <section class="behind">
         <div class="container">
           <div class="behind-grid">
@@ -107,7 +107,10 @@
               <figcaption>Grace Chen · Founder & Principal</figcaption>
             </figure>
           </div>
-          <div class="behind-copy reveal reveal-delay-2" style="font-weight: 500 !important; color: #fff;">
+          <div
+            class="behind-copy reveal reveal-delay-2"
+            style="font-weight: 500 !important; color: #fff"
+          >
             <p>
               Founded by Grace Chen, a strategist with nearly two decades of
               experience in investor relations and capital-markets
@@ -138,8 +141,16 @@
       </section>
     </main>
 
-    <footer style="margin: 0 !important; padding: 0 !important; margin-top: 40px !important;">
-      <div style="color: #fff;" class="container">© <span id="y"></span> Second Room</div>
+    <footer
+      style="
+        margin: 0 !important;
+        padding: 0 !important;
+        margin: 30px 0 !important;
+      "
+    >
+      <div style="color: #000000" class="container">
+        © <span id="y"></span> Second Room
+      </div>
     </footer>
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
