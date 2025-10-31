@@ -6,15 +6,22 @@
   background: #111;
   color: #eee;
   padding: 60px 0;
+  min-height: 100vh; /* fill viewport height */
+  display: flex;
+  align-items: center;
 }
 .contact .container {
-  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   /* slightly tighter side padding */
 }
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  align-items: start;
+  display: grid !important;
+  grid-template-columns: 65% 35%;
+  gap: 30%;
+  align-items: center;
 }
 .contact-title {
   font-family: "Playfair Display", Georgia, serif;
@@ -24,7 +31,7 @@
   margin: 0 0 18px;
 }
 .button-inverse {
-  color: #eee;
+  color: #ffffff;
   border-color: #eee;
 }
 .button-inverse:hover {
@@ -35,6 +42,8 @@
 }
 .contact-right p {
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 .contact-link {
   color: #eaeaea;
@@ -45,7 +54,7 @@
 }
 @media (max-width: 860px) {
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 }
@@ -122,7 +131,7 @@ h2 {
 
 p {
   margin: 0 0 1rem;
-  color: var(--muted);
+  color: #000;
 }
 
 .container {
@@ -249,7 +258,7 @@ body {
 
 .nav-link.active {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Hamburger */
@@ -419,12 +428,15 @@ body {
 .about-page .nav-link,
 .about-page .nav-link.active,
 .about-page .button {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 /* About page: widen container and banner text column */
 .about-page .container {
   max-width: 1240px;
+}
+.about-page .site-header .container {
+  max-width: var(--maxw); /* keep navbar same width as other pages */
 }
 .about-page .banner-inner {
   grid-template-columns: 1fr 1fr;
@@ -653,6 +665,7 @@ body {
 }
 .behind .container {
   max-width: 1000px;
+  min-height: 100vh; /* fill viewport height */
 }
 .behind-grid {
   display: grid;
@@ -663,12 +676,13 @@ body {
   align-items: center;
 }
 .behind-title .kicker {
-  color: #ffeae6;
+  color: #ffffff;
 }
 .behind h1 {
   color: #fff;
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 400;
+  font-family: "Playfair Display", Georgia, serif !important;
 }
 .behind-figure {
   justify-self: end;
@@ -717,7 +731,11 @@ body {
 .behind-cta {
   display: flex;
   justify-content: center;
-  margin: 26px 0 12px;
+  margin: 60px 0 12px;
+}
+.behind-cta .button {
+  text-decoration: underline !important;
+  font-weight: 700 !important;
 }
 .in-badge {
   display: inline-flex;
@@ -734,6 +752,57 @@ body {
     Roboto, Helvetica, Arial;
 }
 
+/* Service detail (Backstage Strategist) */
+.service-detail .container {
+  max-width: 1200px;
+  width: 70%;
+}
+.service-detail {
+  font-size: 130%;
+}
+.service-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+.service-icon {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: -6px; /* nudge icon upward to appear slightly off-center */
+}
+.service-title {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5.2vw, 3.2rem);
+  margin: 0 0 2px;
+}
+.service-subtitle {
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.service-kicker {
+  color: var(--accent);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.8rem;
+  margin: 18px 0 12px;
+}
+.service-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.service-list li {
+  margin-bottom: 20px;
+  line-height: 1.85;
+  font-size: 1.25rem;
+}
+.service-list strong {
+  font-weight: 700;
+}
+
 @media (max-width: 860px) {
   .behind-grid {
     grid-template-columns: 1fr;
@@ -746,6 +815,19 @@ body {
     width: 90%;
     max-width: 520px;
     height: auto;
+  }
+  /* Center text containers on mobile */
+  .behind-text,
+  .behind-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  /* Service detail: make container nearly full-width on mobile */
+  .service-detail .container {
+    width: 90%;
   }
 }
 .item-title {
@@ -765,22 +847,23 @@ footer {
   font-size: 14px;
 }
 
-/* Floating footer: always 10px above viewport bottom */
+/* Footer in normal flow with spacing */
 footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 50px;
-  padding: 0;
-  margin: 0;
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  padding: 40px 0;
+  margin-top: 40px;
   background: transparent;
-  z-index: 999;
+  z-index: auto;
 }
 
-/* Mobile: footer closer to bottom */
+/* Mobile: inherit normal flow */
 @media (max-width: 720px) {
   footer {
-    bottom: 15px;
+    position: static;
+    margin-top: 40px;
   }
 }
 
