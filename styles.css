@@ -33,12 +33,14 @@
 .button-inverse {
   color: #ffffff;
   border-color: #eee;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .button-inverse:hover {
   background: #1d1d1d;
 }
 .contact-right {
-  line-height: 1.9;
+  line-height: 1;
 }
 .contact-right p {
   color: #fff;
@@ -92,6 +94,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Slightly reduce default link line-height globally */
+a {
+  line-height: 1.45;
+}
+
 /* Full-height layout for contact page */
 .contact-body {
   min-height: 100vh;
@@ -132,6 +139,10 @@ h2 {
 p {
   margin: 0 0 1rem;
   color: #000;
+}
+
+a {
+  line-height: 1.3;
 }
 
 .container {
@@ -640,6 +651,14 @@ body {
   height: 18px;
 }
 
+/* Offerings: tighten line-height for all grid text */
+.offerings .off-title,
+.offerings .off-subtitle,
+.offerings .off-copy,
+.offerings .off-link {
+  line-height: 1.2;
+}
+
 @media (max-width: 1024px) {
   .offerings .off-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -756,6 +775,14 @@ body {
 .service-detail .container {
   max-width: 1200px;
   width: 70%;
+}
+.service-detail,
+.service-detail p,
+.service-detail li,
+.service-detail .service-subtitle,
+.service-detail .service-title,
+.service-detail .service-kicker {
+  line-height: 1.2;
 }
 .service-detail {
   font-size: 130%;
