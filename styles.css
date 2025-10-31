@@ -1,3 +1,6 @@
+@import url("https://fonts.cdnfonts.com/css/glacial-indifference");
+/* Glacial Indifference for all non-Playfair text */
+ 
 /* Contact */
 .contact {
   background: #111;
@@ -71,8 +74,8 @@ html {
 
 body {
   margin: 0;
-  font-family: "montserrat", Inter, system-ui, -apple-system, Segoe UI, Roboto,
-    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Glacial Indifference", system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -100,7 +103,8 @@ body.no-scroll {
 h1,
 h2,
 h3 {
-  font-family: "Montserrat", Georgia, "Times New Roman", serif !important;
+  font-family: "Glacial Indifference", system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial !important;
   line-height: 1.15;
   margin: 0 0 0.5rem;
 }
@@ -338,7 +342,7 @@ body {
 }
 
 .cta-wrap {
-  margin: 0;
+  margin-Top: 5%;
 }
 
 .button {
@@ -383,9 +387,10 @@ body {
 
 .banner-inner {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 1%;
   align-items: start;
+  margin-right: none !important;
 }
 
 .kicker {
@@ -395,6 +400,72 @@ body {
 
 .banner h1 {
   color: #fff;
+  font-family: "Playfair Display", Georgia, serif !important;
+}
+
+.banner .kicker {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* About page font-weight increase */
+.about-page {
+  font-weight: 600;
+}
+.about-page h1,
+.about-page h2,
+.about-page h3 {
+  font-weight: 600 !important;
+}
+.about-page .nav-link,
+.about-page .nav-link.active,
+.about-page .button {
+  font-weight: 600 !important;
+}
+
+/* About page: widen container and banner text column */
+.about-page .container {
+  max-width: 1240px;
+}
+.about-page .banner-inner {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* About page: strategy items black text and lighter subtext */
+.about-page .strategy-item .item-title {
+  color: var(--accent);
+}
+.about-page .strategy-item .muted {
+  color: #000;
+  font-weight: 400;
+}
+.about-page .strategy-item:hover .item-title {
+  color: var(--accent);
+}
+
+/* About page: reduce font weight of intro and lead copy by 150 (to 450) */
+.about-page .banner-inner p {
+  font-weight: 550;
+}
+.about-page .lead p {
+  font-weight: 450;
+}
+
+/* About page: widen Strategy section content */
+.about-page .grid-2 {
+  gap: 40px;
+}
+.about-page .lead {
+  max-width: 680px;
+}
+
+/* About page: slightly larger font for strategy list */
+.about-page .list {
+  font-size: 105%;
+}
+
+/* About page: reduce banner H1 weight by 150 (to ~450) */
+.about-page .banner h1 {
+  font-weight: 450 !important;
 }
 
 .mark {
@@ -443,7 +514,7 @@ body {
 
 .grid-2 {
   display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
+  grid-template-columns: 1fr 1fr;
   gap: 64px;
 }
 .grid-2 {
@@ -483,11 +554,11 @@ body {
 .offerings .off-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px 80px;
-  align-items: start;
+  gap: 64px 100px;
+  align-items: stretch; /* ensure equal heights per row */
 }
 .offerings .container {
-  max-width: 1000px;
+  max-width: 1120px;
 }
 .offerings-heading {
   margin-bottom: 12%;
@@ -497,6 +568,7 @@ body {
   flex-direction: column;
   gap: 10px;
   border-radius: 12px;
+  height: 100%; /* fill grid row height */
 }
 .off-media {
   display: flex;
@@ -533,6 +605,27 @@ body {
 }
 .off-copy {
   color: var(--muted);
+}
+
+/* Offerings: increase weight of black body text and style CTA links */
+.offerings .off-copy {
+  color: #000;
+  font-weight: 500;
+}
+.offerings .off-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+  text-decoration: underline;
+  font-style: italic;
+  font-weight: 700;
+  margin-top: auto; /* push link to bottom of card */
+  padding-top: 12px;
+}
+.offerings .off-link-icon {
+  width: 18px;
+  height: 18px;
 }
 
 @media (max-width: 1024px) {
@@ -600,6 +693,14 @@ body {
   align-items: start;
   row-gap: 14px;
 }
+
+.copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 16px;
+  color: #fff;
+}
 .behind-text .copy p {
   color: #ffeae6;
 }
@@ -629,8 +730,8 @@ body {
   border-radius: 6px;
   margin-left: 10px;
   font-weight: 700;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
-    Arial;
+  font-family: "Glacial Indifference", system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial;
 }
 
 @media (max-width: 860px) {
@@ -662,6 +763,25 @@ footer {
   color: var(--muted);
   text-align: center;
   font-size: 14px;
+}
+
+/* Floating footer: always 10px above viewport bottom */
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+/* Mobile: footer closer to bottom */
+@media (max-width: 720px) {
+  footer {
+    bottom: 15px;
+  }
 }
 
 /* Reveal animations */
@@ -770,5 +890,10 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* About page: add left margin for lead copy on mobile */
+  .about-page .lead {
+    margin-left: 16px;
   }
 }
