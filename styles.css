@@ -119,6 +119,19 @@ a {
   flex-shrink: 0;
 }
 
+/* Full-height layout for behind page */
+.behind-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.behind-body main {
+  flex: 1 0 auto;
+}
+.behind-body footer {
+  flex-shrink: 0;
+}
+
 body.no-scroll {
   overflow: hidden;
 }
