@@ -29,13 +29,13 @@
         </div>
         <button
           class="menu-toggle"
-          aria-controls="academy-nav"
+          aria-controls="studio-nav"
           aria-expanded="false"
           title="Menu"
         >
           ☰
         </button>
-        <nav id="academy-nav" class="nav" aria-label="Primary">
+        <nav id="studio-nav" class="nav" aria-label="Primary">
           <button class="menu-close" aria-label="Close menu">✕</button>
           <a class="nav-link" href="index.html">Home</a>
           <a class="nav-link" href="about.html">About</a>
@@ -52,37 +52,33 @@
           <div class="service-hero">
             <img class="service-icon" src="offering3.jpg" alt="SR Studio" />
             <div>
-              <h2 class="service-title">SR Academy</h2>
-              <div class="service-subtitle">Learning &amp; Frameworks</div>
+              <h2 class="service-title">SR Studio</h2>
+              <div class="service-subtitle">Thought Leadership &amp; Collaborations</div>
             </div>
           </div>
 
-          <h3 class="service-kicker">
-            Sample programmes (available on demand)
-          </h3>
+          <h3 class="service-kicker">What we do</h3>
 
           <ul class="service-list">
             <li>
-              <strong>The IRO's Foundation</strong> — build a structured
-              understanding of investor <br />
-              behaviour, valuation dynamics, targeting strategy, and engagement
-              <br />
-              rhythm.
+              <strong>Executive Roundtables &amp; Investor Forums</strong> — curated dialogues that bring investors, analysts,
+              and leadership together around strategic themes.
             </li>
             <li>
-              <strong>Control the First Frame™</strong> — learn to frame
-              strategy and numbers in high- <br>stakes conversations to shape market
-              perception
+              <strong>Thought‑Leadership Content &amp; Media</strong> — newsletters, podcasts, and editorial pieces that
+              position organisations and leaders as credible voices.
             </li>
             <li>
-              <strong>Rehearse the Question You Hope Never Comes™ </strong> — develop Q&A <br>discipline and leadership
-              composure under pressure. behaviour, valuation dynamics, targeting
-              strate
+              <strong>Multi‑Partner Event Concepting &amp; Curation</strong> — collaborations among corporates, funds,
+              and institutions on shared themes and focus.
             </li>
             <li>
-              <strong>Custom executive workshops</strong> in areas of investor relations, leadership <br>
-              stakes conversations to shape market perception.
-              communication and market engagement.
+              <strong>The IRO’s Foundation</strong> — build a structured understanding of investor behaviour,
+              valuation dynamics, targeting strategy, and engagement rhythm.
+            </li>
+            <li>
+              <strong>Corporate Transformation &amp; Purpose Storytelling</strong> — communicating business pivots and
+              strategy shifts with clarity and trust.
             </li>
           </ul>
         </div>
@@ -96,7 +92,7 @@
       document.getElementById("y").textContent = new Date().getFullYear();
       (function () {
         const btn = document.querySelector(".menu-toggle");
-        const nav = document.getElementById("academy-nav");
+        const nav = document.getElementById("studio-nav");
         if (btn && nav) {
           const toggle = () => {
             const open = nav.classList.toggle("is-open");
