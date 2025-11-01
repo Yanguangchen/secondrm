@@ -1,0 +1,40 @@
+Second Room — Where Trust Shapes Capital
+Website: https://www.secondrm.com
+Company: Second Room Pte Ltd (Singapore)
+Contact: grace@secondrm.com | Tel: +65-8065-4655
+Sitemap: https://www.secondrm.com/sitemap.xml
+Last-Updated: 2025-11-01
+
+Overview
+Second Room partners with leaders to prepare for capital-raising moments — from pre-IPO storytelling to post-listing investor engagement. Founded in Singapore by Grace Chen, the company blends strategy, narrative, and investor insight to help businesses communicate with clarity and conviction, and build trust with investors and markets.
+
+Key Pages and Summaries
+- Home (index.html): Tagline “Where Trust Shapes Capital”; overview of how Second Room equips decision‑makers to interpret markets, frame conviction, and build clarity and trust with stakeholders.
+- About (about.html): “About Second Room” — strategy platform for founders, leaders, and institutions; expanded description of approach and philosophy.
+- Our Offerings (our-offerings.html): Three pillars
+  1) Backstage Strategist (Capital Markets IR Advisory)
+     - Strategic Diagnostics; Narrative Architecture; Performance Readiness; Reputation Alignment; Capital Confidence.
+  2) SR Academy (Learning & Frameworks)
+     - The Second Room System™; Executive Workshops; Messaging Playbooks; Team Enablement; Custom Programmes.
+  3) SR Studio (Thought Leadership & Collaborations)
+     - Executive Roundtables & Investor Forums; Thought‑Leadership Content & Media; Multi‑Partner Event Concepting & Curation; The IRO’s Foundation; Corporate Transformation & Purpose Storytelling.
+- Backstage (backstage.html): Detailed scope for IR advisory (diagnostics, messaging, rehearsal, alignment, confidence).
+- SR Academy (sr-academy.html): On‑demand programmes and enablement built on The Second Room System™.
+- SR Studio (sr-studio.html): Collaboration formats that convene investors and shape conversations around strategy, markets and meaning.
+- Behind SR (behind-sr.html): Founder bio — Grace Chen; prior role as Head of Group IR at CapitaLand Investment; experience engaging global investors.
+- Contact (contact.html): Email, phone, and address — 60 Paya Lebar Road, #07‑54 Paya Lebar Square, Singapore 409051.
+
+Core Themes
+- Trust‑shaping narratives for capital markets
+- Investor logic, alignment, and leadership readiness
+- Structured frameworks for clear, consistent communication
+- Thought leadership that connects strategy, markets, and meaning
+
+Use of Content by LLMs
+- Copyright: © <current-year> Second Room Pte Ltd. All rights reserved.
+- Indexing/Summarization: Allowed for search, preview, and non‑derogatory descriptive summaries with attribution (“Source: Second Room — https://www.secondrm.com”).
+- Model Training: Commercial training use requires prior written permission. Contact: grace@secondrm.com.
+
+Attribution
+If you cite or surface content from this site in generated outputs, include: “Second Room — Where Trust Shapes Capital (https://www.secondrm.com)”.
+
