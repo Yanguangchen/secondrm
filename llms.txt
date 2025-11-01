@@ -1,40 +1,30 @@
-Second Room — Where Trust Shapes Capital
+# Second Room — Where Trust Shapes Capital
+
+> Second Room partners with leaders to prepare for capital-raising moments — from pre-IPO storytelling to post-listing investor engagement. Founded in Singapore by Grace Chen, the company blends strategy, narrative, and investor insight to help businesses communicate with clarity and conviction, and build trust with investors and markets.
+
+Important notes:
+- Focused on high‑stakes capital-markets communication: pre‑IPO, listings, fundraises and ongoing investor engagement.
+- Distinct approach that integrates strategy, finance, and storytelling to shape trust with markets.
+- Three complementary offerings: advisory, learning frameworks, and collaborations.
+
+## Products
+- [Backstage Strategist](https://www.secondrm.com/backstage.html): Bespoke capital‑markets IR advisory (diagnostics, narrative architecture, rehearsal, alignment, confidence).
+- [SR Academy](https://www.secondrm.com/sr-academy.html): The Second Room System™ and practical programmes that scale clarity across teams.
+- [SR Studio](https://www.secondrm.com/sr-studio.html): Curated roundtables, forums, and thought‑leadership content that connect strategy, markets, and meaning.
+
+## Blog Content
+- [Behind Second Room](https://www.secondrm.com/behind-sr.html): Founder background and perspective; experience leading IR at a major listed real‑asset manager.
+- [Our Offerings](https://www.secondrm.com/our-offerings.html): Overview of the platform’s three pillars and how they work together.
+- [About Second Room](https://www.secondrm.com/about.html): The philosophy and structure behind our trust‑shaping approach.
+
+## Company
+- [About us](https://www.secondrm.com/about.html): Company background, mission, and approach.
+- [Contact](https://www.secondrm.com/contact.html): Email, phone, and address for engagements and enquiries.
+- [Work with us](https://www.secondrm.com/our-offerings.html): Explore services; programmes and collaborations tailored to each engagement.
+
 Website: https://www.secondrm.com
-Company: Second Room Pte Ltd (Singapore)
-Contact: grace@secondrm.com | Tel: +65-8065-4655
 Sitemap: https://www.secondrm.com/sitemap.xml
+Company: Second Room Pte Ltd (Singapore)
+Contact: grace@secondrm.com | Tel: +65‑8065‑4655
 Last-Updated: 2025-11-01
-
-Overview
-Second Room partners with leaders to prepare for capital-raising moments — from pre-IPO storytelling to post-listing investor engagement. Founded in Singapore by Grace Chen, the company blends strategy, narrative, and investor insight to help businesses communicate with clarity and conviction, and build trust with investors and markets.
-
-Key Pages and Summaries
-- Home (index.html): Tagline “Where Trust Shapes Capital”; overview of how Second Room equips decision‑makers to interpret markets, frame conviction, and build clarity and trust with stakeholders.
-- About (about.html): “About Second Room” — strategy platform for founders, leaders, and institutions; expanded description of approach and philosophy.
-- Our Offerings (our-offerings.html): Three pillars
-  1) Backstage Strategist (Capital Markets IR Advisory)
-     - Strategic Diagnostics; Narrative Architecture; Performance Readiness; Reputation Alignment; Capital Confidence.
-  2) SR Academy (Learning & Frameworks)
-     - The Second Room System™; Executive Workshops; Messaging Playbooks; Team Enablement; Custom Programmes.
-  3) SR Studio (Thought Leadership & Collaborations)
-     - Executive Roundtables & Investor Forums; Thought‑Leadership Content & Media; Multi‑Partner Event Concepting & Curation; The IRO’s Foundation; Corporate Transformation & Purpose Storytelling.
-- Backstage (backstage.html): Detailed scope for IR advisory (diagnostics, messaging, rehearsal, alignment, confidence).
-- SR Academy (sr-academy.html): On‑demand programmes and enablement built on The Second Room System™.
-- SR Studio (sr-studio.html): Collaboration formats that convene investors and shape conversations around strategy, markets and meaning.
-- Behind SR (behind-sr.html): Founder bio — Grace Chen; prior role as Head of Group IR at CapitaLand Investment; experience engaging global investors.
-- Contact (contact.html): Email, phone, and address — 60 Paya Lebar Road, #07‑54 Paya Lebar Square, Singapore 409051.
-
-Core Themes
-- Trust‑shaping narratives for capital markets
-- Investor logic, alignment, and leadership readiness
-- Structured frameworks for clear, consistent communication
-- Thought leadership that connects strategy, markets, and meaning
-
-Use of Content by LLMs
-- Copyright: © <current-year> Second Room Pte Ltd. All rights reserved.
-- Indexing/Summarization: Allowed for search, preview, and non‑derogatory descriptive summaries with attribution (“Source: Second Room — https://www.secondrm.com”).
-- Model Training: Commercial training use requires prior written permission. Contact: grace@secondrm.com.
-
-Attribution
-If you cite or surface content from this site in generated outputs, include: “Second Room — Where Trust Shapes Capital (https://www.secondrm.com)”.
 
