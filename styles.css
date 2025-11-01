@@ -19,9 +19,15 @@
 }
 .contact-grid {
   display: grid !important;
-  grid-template-columns: 65% 35%;
-  gap: 30%;
+  grid-template-columns: 60% 40%;
+  gap: 40px;
   align-items: center;
+}
+/* Wider container and tighter side padding for contact grid */
+.contact .container.contact-grid {
+  max-width: 1280px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 .contact-title {
   font-family: "Playfair Display", Georgia, serif;
