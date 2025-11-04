@@ -1,6 +1,3 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://www.secondrm.com/sitemap.xml
-
-
+Disallow:
+Sitemap: https://secondrm.com/sitemap.xml
