@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found — Second Room</title>
+    <meta name="description" content="The page you are looking for cannot be found. Return to Second Room to continue exploring." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="Assets/icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="Assets/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="not-found-body">
+    <header class="site-header">
+      <div class="container header-grid">
+        <div class="brand">
+          <a href="index.html" class="brand-link" aria-label="Second Room home"></a>
+        </div>
+        <button
+          class="menu-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          title="Menu"
+        >
+          ☰
+        </button>
+        <nav id="primary-nav" class="nav" aria-label="Primary">
+          <button class="menu-close" aria-label="Close menu">✕</button>
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="our-offerings.html">Our Offerings</a>
+          <a class="nav-link" href="behind-sr.html">Behind SR</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="not-found">
+        <div class="container not-found-content">
+          <p class="not-found-eyebrow">Error 404</p>
+          <h1>We couldn’t find that page.</h1>
+          <p class="not-found-copy">
+            The link may be outdated or the address mistyped. Let’s get you back to
+            the spaces where Second Room shapes capital with clarity and trust.
+          </p>
+          <div class="not-found-actions">
+            <a class="button button-primary" href="index.html">Return Home</a>
+            <a class="not-found-secondary" href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      (function () {
+        const btn = document.querySelector(".menu-toggle");
+        const nav = document.getElementById("primary-nav");
+        if (btn && nav) {
+          const toggle = () => {
+            const open = nav.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", String(open));
+            document.body.classList.toggle("no-scroll", open);
+          };
+          btn.addEventListener("click", toggle);
+          const closeBtn = nav.querySelector(".menu-close");
+          if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            });
+          }
+          nav.addEventListener("click", (event) => {
+            if (event.target.closest("a")) {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            }
+          });
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
