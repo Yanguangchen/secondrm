@@ -20,6 +20,8 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="canonical" href="https://secondrm.com/forms.html" />
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdDfC4sAAAAACA5gmw_8VB1ND1OdDUq2v-YcZN8"></script>
     <style>
       .form-wrap {
         max-width: 820px;
@@ -229,6 +231,7 @@
       import { getAnalytics, isSupported as isAnalyticsSupported } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
       import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
       import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+      import { getFunctions } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-functions.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyDnNp7kZbzizke0D8XVPSxtikyyQcBeBJY",
@@ -333,7 +336,13 @@
         btn.disabled = true;
         btn.textContent = "Submitting…";
         try {
-          await addDoc(collection(db, "form_submissions"), {
+          // Ensure reCAPTCHA is ready, then execute v3
+          if (!window.grecaptcha || !window.grecaptcha.execute) {
+            throw new Error("reCAPTCHA failed to load. Please disable ad‑blockers and try again.");
+          }
+          await new Promise((resolve) => window.grecaptcha.ready(resolve));
+          const token = await window.grecaptcha.execute("6LdDfC4sAAAAACA5gmw_8VB1ND1OdDUq2v-YcZN8", { action: "submit" });
+          const payload = {
             company: val("company"),
             ticker: val("ticker"),
             contactName: val("contactName"),
@@ -344,10 +353,22 @@
             attendance: !!document.querySelector('input[name="attendance"]')?.checked,
             contactConsent: !!document.querySelector('input[name="contactConsent"]')?.checked,
             pdpaConsent: !!document.querySelector('input[name="pdpaConsent"]')?.checked,
-            submittedAt: serverTimestamp(),
             userAgent: navigator.userAgent,
             page: location.href
+          };
+          // Call HTTP function with explicit CORS headers
+          // Call same-origin Vercel serverless route to avoid CORS
+          const CF_URL = "/api/form/submit";
+          const resp = await fetch(CF_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token, payload }),
+            credentials: "omit",
           });
+          if (!resp.ok) {
+            const info = await resp.text().catch(() => "");
+            throw new Error(`Server error (${resp.status}): ${info}`);
+          }
           statusEl.textContent = "Thanks — your interest has been recorded. We’ll be in touch shortly.";
           statusEl.style.color = "green";
           form.reset();
