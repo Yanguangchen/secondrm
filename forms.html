@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register Interest — Second Room</title>
+    <link rel="icon" href="Assets/icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="Assets/icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Register Interest — Second Room" />
+    <meta name="description" content="Register your interest for the Market‑Ready IR Operating System programme." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Register Interest — Second Room" />
+    <meta name="twitter:description" content="Register your interest for the Market‑Ready IR Operating System programme." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="canonical" href="https://secondrm.com/forms.html" />
+    <style>
+      .form-wrap {
+        max-width: 820px;
+        margin: 0 auto;
+      }
+      .sr-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 24px;
+        margin-top: 18px;
+      }
+      .sr-form .full {
+        grid-column: 1 / -1;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      input, textarea, select {
+        width: 100%;
+        border: 1px solid #e3e3e3;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 1rem;
+      }
+      .smallprint {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .checks {
+        display: grid;
+        gap: 10px;
+        margin-top: 8px;
+        justify-items: start; /* keep the checkbox+label pairs left-aligned */
+      }
+      .checks label { font-weight: 500; display: inline-flex; align-items: center; gap: 8px; flex-direction: row-reverse; text-align: left; }
+      /* Ensure checkbox inputs don't fill the whole row like text inputs */
+      .sr-form input[type="checkbox"] { width: auto; height: auto; }
+      .submit-row {
+        margin-top: 16px;
+      }
+      @media (max-width: 860px) {
+        .sr-form {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-grid">
+        <div class="brand">
+          <a href="index.html" class="brand-link" aria-label="Second Room home">
+            <img class="brand-logo" src="Assets/banner.jpg" alt="Second Room" />
+          </a>
+        </div>
+        <button
+          class="menu-toggle"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          title="Menu"
+        >
+          ☰
+        </button>
+        <nav id="primary-nav" class="nav" aria-label="Primary">
+          <button class="menu-close" aria-label="Close menu">✕</button>
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="our-offerings.html">Our Offerings</a>
+          <a class="nav-link" href="behind-sr.html">Behind SR</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container form-wrap">
+          <div class="kicker" style="font-family: 'Playfair Display', Georgia, serif; color: var(--accent);">Register Interest</div>
+          <h1 class="service-title" style="margin-bottom: 6px;">Market‑Ready IR Operating System</h1>
+          <p class="service-subtitle">Fill out the form and we’ll get back to you shortly.</p>
+
+          <form class="sr-form" action="#" method="post" novalidate>
+            <div class="full">
+              <label for="company">Company name *</label>
+              <input id="company" name="company" type="text" required />
+            </div>
+            <div>
+              <label for="ticker">SGX ticker / code *</label>
+              <input id="ticker" name="ticker" type="text" required />
+            </div>
+            <div>
+              <label for="contactName">Contact person name *</label>
+              <input id="contactName" name="contactName" type="text" required />
+            </div>
+            <div>
+              <label for="role">Contact person role *</label>
+              <input id="role" name="role" type="text" required />
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" inputmode="email" required />
+            </div>
+            <div>
+              <label for="mobile">Mobile *</label>
+              <input id="mobile" name="mobile" type="tel" inputmode="tel" required />
+            </div>
+            <div class="full">
+              <label for="office">Office location *</label>
+              <input id="office" name="office" type="text" required />
+            </div>
+
+            <div class="full">
+              <div class="checks">
+                <label><input type="checkbox" name="attendance" value="yes" /> CEO/CFO can attend most sessions</label>
+                <label><input type="checkbox" name="contactConsent" value="yes" /> Consent to be contacted</label>
+              </div>
+            </div>
+
+            <div class="full">
+              <p class="smallprint">
+                By submitting this form, you agree that your personal data may be collected, used, and disclosed by Second Room Pte Ltd (“Second Room”) and its authorised partners, in accordance with applicable data protection laws and regulations.
+                <br /><br />
+                Your information will be used to:
+                <br />• Review and manage your interest in the programme
+                <br />• Deliver and improve Second Room’s services
+                <br />• Conduct market research and internal analysis
+                <br /><br />
+                We will not share your data with unrelated third parties without your consent.
+              </p>
+              <label style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; flex-direction: row-reverse;">
+                <input type="checkbox" name="pdpaConsent" required />
+                <span><strong>I consent</strong> to the collection, use, and disclosure of my personal data by Second Room for the purposes set out in this form.</span>
+              </label>
+            </div>
+
+            <div class="full submit-row">
+              <button type="submit" class="button" style="border: 2px solid #000; color: #000; text-decoration: underline; padding: 14px 34px; font-weight: 700;">
+                Submit Interest
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
+    </footer>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      (function () {
+        const btn = document.querySelector(".menu-toggle");
+        const nav = document.getElementById("primary-nav");
+        if (btn && nav) {
+          const toggle = () => {
+            const open = nav.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", String(open));
+            document.body.classList.toggle("no-scroll", open);
+          };
+          btn.addEventListener("click", toggle);
+          const closeBtn = nav.querySelector(".menu-close");
+          if (closeBtn)
+            closeBtn.addEventListener("click", () => {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            });
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              nav.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              document.body.classList.remove("no-scroll");
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+  </html>
+
+
