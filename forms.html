@@ -46,6 +46,16 @@
         padding: 12px 14px;
         font-size: 1rem;
       }
+      .error {
+        color: #b00020;
+        font-size: 0.9rem;
+        min-height: 1em;
+        margin-top: 4px;
+      }
+      .has-error {
+        border-color: #b00020 !important;
+        background: #fff6f6;
+      }
       .smallprint {
         font-size: 0.9rem;
         color: var(--muted);
@@ -108,30 +118,37 @@
             <div class="full">
               <label for="company">Company name *</label>
               <input id="company" name="company" type="text" required />
+              <div id="err-company" class="error"></div>
             </div>
             <div>
               <label for="ticker">SGX ticker / code *</label>
-              <input id="ticker" name="ticker" type="text" required />
+              <input id="ticker" name="ticker" type="text" required pattern="[A-Za-z0-9.\\-]{1,10}" />
+              <div id="err-ticker" class="error"></div>
             </div>
             <div>
               <label for="contactName">Contact person name *</label>
               <input id="contactName" name="contactName" type="text" required />
+              <div id="err-contactName" class="error"></div>
             </div>
             <div>
               <label for="role">Contact person role *</label>
               <input id="role" name="role" type="text" required />
+              <div id="err-role" class="error"></div>
             </div>
             <div>
               <label for="email">Email *</label>
               <input id="email" name="email" type="email" inputmode="email" required />
+              <div id="err-email" class="error"></div>
             </div>
             <div>
               <label for="mobile">Mobile *</label>
-              <input id="mobile" name="mobile" type="tel" inputmode="tel" required />
+              <input id="mobile" name="mobile" type="tel" inputmode="tel" required pattern="[0-9()+\\-\\s]{7,}" />
+              <div id="err-mobile" class="error"></div>
             </div>
             <div class="full">
               <label for="office">Office location *</label>
               <input id="office" name="office" type="text" required />
+              <div id="err-office" class="error"></div>
             </div>
 
             <div class="full">
@@ -156,6 +173,7 @@
                 <input type="checkbox" name="pdpaConsent" required />
                 <span><strong>I consent</strong> to the collection, use, and disclosure of my personal data by Second Room for the purposes set out in this form.</span>
               </label>
+              <div id="ftr-consent" class="error"></div>
             </div>
 
             <div class="full submit-row">
@@ -163,6 +181,7 @@
                 Submit Interest
               </button>
             </div>
+            <div id="formStatus" class="smallprint" style="margin-top: 10px;"></div>
           </form>
         </div>
       </section>
@@ -171,6 +190,11 @@
     <footer>
       <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
     </footer>
+  <div class="container" style="text-align: right; margin-top: 8px; margin-bottom: 0;">
+    <button id="adminSignInBtn" class="button" style="border: 1.5px solid #000; color: #000;">
+      Admin sign in
+    </button>
+  </div>
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
       (function () {
@@ -199,6 +223,171 @@
           });
         }
       })();
+    </script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import { getAnalytics, isSupported as isAnalyticsSupported } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+      import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+      import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDnNp7kZbzizke0D8XVPSxtikyyQcBeBJY",
+        authDomain: "secondrm.firebaseapp.com",
+        projectId: "secondrm",
+        storageBucket: "secondrm.firebasestorage.app",
+        messagingSenderId: "468878187246",
+        appId: "1:468878187246:web:3e3f336bfcaaadd71131ff",
+        measurementId: "G-908P86VVVR"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      try {
+        if (await isAnalyticsSupported()) {
+          getAnalytics(app);
+        }
+      } catch (e) { /* ignore analytics failures */ }
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+      const ADMIN_EMAILS = new Set(["gracechen.info@gmail.com","yanguangchensp@gmail.com"]);
+
+      const form = document.querySelector(".sr-form");
+      const statusEl = document.getElementById("formStatus");
+      const err = {
+        company: document.getElementById("err-company"),
+        ticker: document.getElementById("err-ticker"),
+        contactName: document.getElementById("err-contactName"),
+        role: document.getElementById("err-role"),
+        email: document.getElementById("err-email"),
+        mobile: document.getElementById("err-mobile"),
+        office: document.getElementById("err-office"),
+        pdpa: document.getElementById("ftr-consent")
+      };
+
+      function setError(input, el, msg) {
+        if (input) {
+          input.classList.toggle("has-error", !!msg);
+        }
+        if (el) {
+          el.textContent = msg || "";
+        }
+      }
+
+      function val(id) {
+        const el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+      }
+
+      function validate() {
+        // clear
+        Object.entries({
+          company: "Company name is required.",
+          ticker: "Please enter SGX ticker/code.",
+          contactName: "Please enter a contact name.",
+          role: "Please enter a role/title.",
+          email: "Please enter a valid email address.",
+          mobile: "Please enter a valid mobile number.",
+          office: "Please enter office location."
+        }).forEach(([k]) => setError(document.getElementById(k), err[k === "pdpa" ? "pdpa" : k], ""));
+
+        let ok = true;
+        const company = val("company");
+        if (!company) { setError(document.getElementById("company"), err.company, "Please enter your company name."); ok = false; }
+
+        const ticker = val("ticker");
+        if (!ticker) { setError(document.getElementById("ticker"), err.ticker, "Please enter SGX ticker/code."); ok = false; }
+        else if (!/^[A-Za-z0-9.\-]{1,10}$/.test(ticker)) { setError(document.getElementById("ticker"), err.ticker, "Use 1–10 chars: A–Z, 0–9, . or -"); ok = false; }
+
+        const contactName = val("contactName");
+        if (!contactName) { setError(document.getElementById("contactName"), err.contactName, "Please enter a contact name."); ok = false; }
+
+        const role = val("role");
+        if (!role) { setError(document.getElementById("role"), err.role, "Please enter a role/title."); ok = false; }
+
+        const email = val("email");
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setError(document.getElementById("email"), err.email, "Please enter a valid email address."); ok = false; }
+
+        const mobileEl = document.getElementById("mobile");
+        const mobileVal = mobileEl ? mobileEl.value.trim() : "";
+        if (!/^[0-9()+\-\s]{7,}$/.test(mobileVal)) { setError(mobileEl, err.mobile, "Use digits, +, -, () and at least 7 numbers."); ok = false; }
+
+        const office = val("office");
+        if (!office) { setError(document.getElementById("office"), err.office, "Please enter office location."); ok = false; }
+
+        const pdpa = document.querySelector('input[name="pdpaConsent"]');
+        if (!pdpa || !pdpa.checked) { setError(null, err.pdpa, "You must consent to continue."); ok = false; }
+        return ok;
+      }
+
+      form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        statusEl.textContent = "";
+        statusEl.style.color = "";
+        if (!validate()) {
+          statusEl.textContent = "Please fix the highlighted fields.";
+          const firstErr = document.querySelector(".has-error") || document.querySelector(".error:not(:empty)");
+          if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = "Submitting…";
+        try {
+          await addDoc(collection(db, "form_submissions"), {
+            company: val("company"),
+            ticker: val("ticker"),
+            contactName: val("contactName"),
+            role: val("role"),
+            email: val("email"),
+            mobile: document.getElementById("mobile").value.trim(),
+            office: val("office"),
+            attendance: !!document.querySelector('input[name="attendance"]')?.checked,
+            contactConsent: !!document.querySelector('input[name="contactConsent"]')?.checked,
+            pdpaConsent: !!document.querySelector('input[name="pdpaConsent"]')?.checked,
+            submittedAt: serverTimestamp(),
+            userAgent: navigator.userAgent,
+            page: location.href
+          });
+          statusEl.textContent = "Thanks — your interest has been recorded. We’ll be in touch shortly.";
+          statusEl.style.color = "green";
+          form.reset();
+          document.querySelectorAll(".has-error").forEach(el => el.classList.remove("has-error"));
+          Object.values(err).forEach(e => e.textContent = "");
+        } catch (err_) {
+          console.error(err_);
+          statusEl.textContent = "Sorry, something went wrong. Please try again later.";
+          statusEl.style.color = "#b00020";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "Submit Interest";
+        }
+      });
+
+      // --- Admin Google Sign-in -> redirect to admin console if authorised ---
+      const signInBtn = document.getElementById("adminSignInBtn");
+      if (signInBtn) {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: "select_account" });
+        signInBtn.addEventListener("click", async () => {
+          try {
+            const cred = await signInWithGoogle();
+            const email = (cred.user && cred.user.email ? cred.user.email.toLowerCase() : "");
+            if (ADMIN_EMAILS.has(email)) {
+              window.location.href = "admin.html";
+            } else {
+              alert("This Google account is not authorised for admin access.");
+              await signOut(auth);
+            }
+          } catch (e) {
+            console.error(e);
+            alert("Sign-in cancelled or failed.");
+          }
+        });
+
+        function signInWithGoogle() {
+          return signInWithPopup(auth, provider);
+        }
+      }
     </script>
   </body>
   </html>

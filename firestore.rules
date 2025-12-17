@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow anyone (including unauthenticated clients) to WRITE anywhere.
+    match /{document=**} {
+      allow write: if true;
+
+      // Disallow reads by default; only allow specific admin emails.
+      allow read: if request.auth != null
+                  && (request.auth.token.email == "gracechen.info@gmail.com"
+                      || request.auth.token.email == "yanguangchensp@gmail.com");
+    }
+  }
+}
+
+
