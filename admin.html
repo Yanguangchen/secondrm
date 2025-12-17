@@ -14,29 +14,125 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      .admin-wrap { max-width: 1100px; margin: 0 auto; }
-      .admin-bar { display:flex; justify-content: space-between; align-items:center; margin: 24px 0; gap: 12px; flex-wrap: wrap; }
-      .pill { padding:2px 8px; border:1px solid #ddd; border-radius: 999px; font-size: 12px; display:inline-block; }
-      .muted { color:#666; }
-      .hidden { display:none; }
-      .admin-actions { display:flex; gap:8px; align-items:center; flex-wrap: wrap; }
-      .btn { display:inline-block; border:1.5px solid #000; padding:8px 16px; border-radius:20px; background:#fff; cursor:pointer; }
-      .btn[disabled] { opacity: .6; cursor: not-allowed; }
-      .danger { border-color:#b00020; color:#b00020; }
-      .ok { color: #0a7f2b; }
-      .search { padding:8px 12px; border:1px solid #e5e5e5; border-radius:8px; width: 260px; }
+      .admin-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .admin-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 24px 0;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        padding: 2px 8px;
+        border: 1px solid #ddd;
+        border-radius: 999px;
+        font-size: 12px;
+        display: inline-block;
+      }
+      .muted {
+        color: #666;
+      }
+      .hidden {
+        display: none;
+      }
+      .admin-actions {
+        display: flex;
+        gap: 3%;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        border: 1.5px solid #000;
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: #fff;
+        cursor: pointer;
+      }
+      .btn[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .danger {
+        border-color: #b00020;
+        color: #b00020;
+      }
+      .ok {
+        color: #0a7f2b;
+      }
+      .search {
+        padding: 8px 12px;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        width: 260px;
+      }
       /* Cards layout */
-      .cards-grid { display:grid; grid-template-columns: repeat(3, minmax(260px, 1fr)); gap:16px; }
-      @media (max-width: 1024px){ .cards-grid{ grid-template-columns: repeat(2, minmax(260px,1fr)); } }
-      @media (max-width: 640px){ .cards-grid{ grid-template-columns: 1fr; } }
-      .card { border:1px solid #e5e5e5; border-radius:12px; padding:16px; background:#fff; display:flex; flex-direction:column; gap:10px; }
-      .card h3 { margin:0; font-size:18px; }
-      .card .sub { color:#666; font-size:12px; }
-      .row { display:flex; gap:8px; flex-wrap:wrap; }
-      .row > div { flex:1 1 45%; min-width:200px; }
-      .badge { font-size:11px; padding:2px 6px; border-radius:6px; border:1px solid #ddd; display:inline-block; margin-right:6px; }
-      .card input[type="text"], .card input[type="email"] { width:100%; border:1px solid #ddd; border-radius:6px; padding:6px 8px; }
-      .card-actions { display:flex; gap:8px; justify-content:flex-start; margin-top:6px; }
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      @media (max-width: 1024px) {
+        .cards-grid {
+          grid-template-columns: repeat(2, minmax(260px, 1fr));
+        }
+      }
+      @media (max-width: 640px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .card {
+        border: 1px solid #e5e5e5;
+        border-radius: 12px;
+        padding: 16px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .card h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .card .sub {
+        color: #666;
+        font-size: 12px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .row > div {
+        flex: 1 1 45%;
+        min-width: 200px;
+      }
+      .badge {
+        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .card input[type="text"],
+      .card input[type="email"] {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 6px 8px;
+      }
+      .card-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-start;
+        margin-top: 6px;
+      }
     </style>
   </head>
   <body>
@@ -70,17 +166,30 @@
         <h1 class="service-title">Admin Console</h1>
         <div class="admin-bar">
           <div class="admin-actions">
-            <input id="search" class="search" type="search" placeholder="Search name, company, email, ticker…" />
+            <input
+              id="search"
+              class="search"
+              type="search"
+              placeholder="Search name, company, email, ticker…"
+            />
             <button id="exportBtn" class="btn">Export CSV</button>
           </div>
           <div>
             <span id="authStatus" class="pill muted">Signed out</span>
-            <button id="signInBtn" class="button" style="margin-left:8px;">Sign in with Google</button>
-            <button id="signOutBtn" class="button danger hidden" style="margin-left:8px;">Sign out</button>
+            <button id="signInBtn" class="button" style="margin-left: 8px">
+              Sign in with Google
+            </button>
+            <button
+              id="signOutBtn"
+              class="button danger hidden"
+              style="margin-left: 8px"
+            >
+              Sign out
+            </button>
           </div>
         </div>
 
-        <div id="notice" class="muted" style="margin-bottom:10px;"></div>
+        <div id="notice" class="muted" style="margin-bottom: 10px"></div>
 
         <div id="cards" class="cards-grid"></div>
       </div>
@@ -121,8 +230,23 @@
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-      import { getFirestore, collection, getDocs, query, orderBy, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-      import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+        query,
+        orderBy,
+        doc,
+        updateDoc,
+        deleteDoc,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyDnNp7kZbzizke0D8XVPSxtikyyQcBeBJY",
@@ -131,9 +255,12 @@
         storageBucket: "firebasestorage.googleapis.com",
         messagingSenderId: "468878187246",
         appId: "1:468878187246:web:3e3f336bfcaaadd71131ff",
-        measurementId: "G-908P86VVVR"
+        measurementId: "G-908P86VVVR",
       };
-      const ADMIN_EMAILS = new Set(["gracechen.info@gmail.com","yanguangchensp@gmail.com"]);
+      const ADMIN_EMAILS = new Set([
+        "gracechen.info@gmail.com",
+        "yanguangchensp@gmail.com",
+      ]);
 
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
@@ -153,13 +280,18 @@
 
       function renderCards(items) {
         const q = (searchEl.value || "").toLowerCase();
-        const filtered = !q ? items : items.filter(r => {
-          const s = `${r.company} ${r.ticker} ${r.contactName} ${r.email} ${r.role} ${r.mobile} ${r.office}`.toLowerCase();
-          return s.includes(q);
-        });
+        const filtered = !q
+          ? items
+          : items.filter((r) => {
+              const s =
+                `${r.company} ${r.ticker} ${r.contactName} ${r.email} ${r.role} ${r.mobile} ${r.office}`.toLowerCase();
+              return s.includes(q);
+            });
         cardsEl.innerHTML = "";
         for (const it of filtered) {
-          const ts = it.submittedAt?.toDate ? it.submittedAt.toDate() : (it.submittedAt || new Date());
+          const ts = it.submittedAt?.toDate
+            ? it.submittedAt.toDate()
+            : it.submittedAt || new Date();
           const card = document.createElement("div");
           card.className = "card";
           card.dataset.id = it.id;
@@ -169,17 +301,31 @@
               <span class="sub">${new Date(ts).toLocaleString()}</span>
             </div>
             <div class="row">
-              <div><label class="muted">Ticker</label><input class="inp-ticker" type="text" value="${escapeAttr(it.ticker||'')}" disabled></div>
-              <div><label class="muted">Role</label><input class="inp-role" type="text" value="${escapeAttr(it.role||'')}" disabled></div>
-              <div><label class="muted">Contact</label><input class="inp-contactName" type="text" value="${escapeAttr(it.contactName||'')}" disabled></div>
-              <div><label class="muted">Email</label><input class="inp-email" type="email" value="${escapeAttr(it.email||'')}" disabled></div>
-              <div><label class="muted">Mobile</label><input class="inp-mobile" type="text" value="${escapeAttr(it.mobile||'')}" disabled></div>
-              <div><label class="muted">Office</label><input class="inp-office" type="text" value="${escapeAttr(it.office||'')}" disabled></div>
+              <div><label class="muted">Ticker</label><input class="inp-ticker" type="text" value="${escapeAttr(
+                it.ticker || ""
+              )}" disabled></div>
+              <div><label class="muted">Role</label><input class="inp-role" type="text" value="${escapeAttr(
+                it.role || ""
+              )}" disabled></div>
+              <div><label class="muted">Contact</label><input class="inp-contactName" type="text" value="${escapeAttr(
+                it.contactName || ""
+              )}" disabled></div>
+              <div><label class="muted">Email</label><input class="inp-email" type="email" value="${escapeAttr(
+                it.email || ""
+              )}" disabled></div>
+              <div><label class="muted">Mobile</label><input class="inp-mobile" type="text" value="${escapeAttr(
+                it.mobile || ""
+              )}" disabled></div>
+              <div><label class="muted">Office</label><input class="inp-office" type="text" value="${escapeAttr(
+                it.office || ""
+              )}" disabled></div>
             </div>
             <div>
-              <span class="badge">Attend: ${it.attendance ? 'Yes' : 'No'}</span>
-              <span class="badge">Contact OK: ${it.contactConsent ? 'Yes' : 'No'}</span>
-              <span class="badge">PDPA: ${it.pdpaConsent ? 'Yes' : 'No'}</span>
+              <span class="badge">Attend: ${it.attendance ? "Yes" : "No"}</span>
+              <span class="badge">Contact OK: ${
+                it.contactConsent ? "Yes" : "No"
+              }</span>
+              <span class="badge">PDPA: ${it.pdpaConsent ? "Yes" : "No"}</span>
             </div>
             <div class="card-actions">
               <button class="btn btn-edit">Edit</button>
@@ -189,65 +335,66 @@
             </div>
           `;
 
-          const btnEdit = card.querySelector('.btn-edit');
-          const btnSave = card.querySelector('.btn-save');
-          const btnCancel = card.querySelector('.btn-cancel');
-          const btnDelete = card.querySelector('.btn-delete');
-          const inputs = card.querySelectorAll('input');
+          const btnEdit = card.querySelector(".btn-edit");
+          const btnSave = card.querySelector(".btn-save");
+          const btnCancel = card.querySelector(".btn-cancel");
+          const btnDelete = card.querySelector(".btn-delete");
+          const inputs = card.querySelectorAll("input");
 
           function setEditMode(on) {
-            inputs.forEach(i => i.disabled = !on);
-            btnEdit.classList.toggle('hidden', on);
-            btnSave.classList.toggle('hidden', !on);
-            btnCancel.classList.toggle('hidden', !on);
+            inputs.forEach((i) => (i.disabled = !on));
+            btnEdit.classList.toggle("hidden", on);
+            btnSave.classList.toggle("hidden", !on);
+            btnCancel.classList.toggle("hidden", !on);
           }
 
-          btnEdit.addEventListener('click', () => setEditMode(true));
-          btnCancel.addEventListener('click', () => {
-            const fresh = cache.find(c => c.id === it.id) || {};
-            card.querySelector('.inp-ticker').value = fresh.ticker || '';
-            card.querySelector('.inp-role').value = fresh.role || '';
-            card.querySelector('.inp-contactName').value = fresh.contactName || '';
-            card.querySelector('.inp-email').value = fresh.email || '';
-            card.querySelector('.inp-mobile').value = fresh.mobile || '';
-            card.querySelector('.inp-office').value = fresh.office || '';
+          btnEdit.addEventListener("click", () => setEditMode(true));
+          btnCancel.addEventListener("click", () => {
+            const fresh = cache.find((c) => c.id === it.id) || {};
+            card.querySelector(".inp-ticker").value = fresh.ticker || "";
+            card.querySelector(".inp-role").value = fresh.role || "";
+            card.querySelector(".inp-contactName").value =
+              fresh.contactName || "";
+            card.querySelector(".inp-email").value = fresh.email || "";
+            card.querySelector(".inp-mobile").value = fresh.mobile || "";
+            card.querySelector(".inp-office").value = fresh.office || "";
             setEditMode(false);
           });
-          btnSave.addEventListener('click', async () => {
+          btnSave.addEventListener("click", async () => {
             const payload = {
-              ticker: card.querySelector('.inp-ticker').value.trim(),
-              role: card.querySelector('.inp-role').value.trim(),
-              contactName: card.querySelector('.inp-contactName').value.trim(),
-              email: card.querySelector('.inp-email').value.trim(),
-              mobile: card.querySelector('.inp-mobile').value.trim(),
-              office: card.querySelector('.inp-office').value.trim()
+              ticker: card.querySelector(".inp-ticker").value.trim(),
+              role: card.querySelector(".inp-role").value.trim(),
+              contactName: card.querySelector(".inp-contactName").value.trim(),
+              email: card.querySelector(".inp-email").value.trim(),
+              mobile: card.querySelector(".inp-mobile").value.trim(),
+              office: card.querySelector(".inp-office").value.trim(),
             };
             btnSave.disabled = true;
             try {
-              await updateDoc(doc(db, 'form_submissions', it.id), payload);
+              await updateDoc(doc(db, "form_submissions", it.id), payload);
               Object.assign(it, payload);
-              const idx = cache.findIndex(c => c.id === it.id);
+              const idx = cache.findIndex((c) => c.id === it.id);
               if (idx >= 0) Object.assign(cache[idx], payload);
               setEditMode(false);
-              flash('Saved.');
+              flash("Saved.");
             } catch (e) {
               console.error(e);
-              alert('Update failed.');
+              alert("Update failed.");
             } finally {
               btnSave.disabled = false;
             }
           });
-          btnDelete.addEventListener('click', async () => {
-            if (!confirm('Delete this submission?')) return;
+          btnDelete.addEventListener("click", async () => {
+            if (!confirm("Delete this submission?")) return;
             btnDelete.disabled = true;
             try {
-              await deleteDoc(doc(db, 'form_submissions', it.id));
-              cache = cache.filter(c => c.id !== it.id);
+              await deleteDoc(doc(db, "form_submissions", it.id));
+              cache = cache.filter((c) => c.id !== it.id);
               card.remove();
-              flash('Deleted.');
+              flash("Deleted.");
             } catch (e) {
               console.error(e);
-              alert('Delete failed.');
+              alert("Delete failed.");
               btnDelete.disabled = false;
             }
           });
@@ -256,22 +403,38 @@
         }
       }
 
-      function escapeHtml(s){
-        return (s || '').replace(/[&<>"']/g, (m) => ({
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
-        }[m]));
+      function escapeHtml(s) {
+        return (s || "").replace(
+          /[&<>"']/g,
+          (m) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            }[m])
+        );
       }
-      function escapeAttr(s){ return escapeHtml(s); }
-      function flash(msg){ noticeEl.textContent = msg; setTimeout(()=>{ noticeEl.textContent=''; }, 2000); }
+      function escapeAttr(s) {
+        return escapeHtml(s);
+      }
+      function flash(msg) {
+        noticeEl.textContent = msg;
+        setTimeout(() => {
+          noticeEl.textContent = "";
+        }, 2000);
+      }
 
       async function loadData() {
-        const snap = await getDocs(query(collection(db, "form_submissions"), orderBy("submittedAt", "desc")));
+        const snap = await getDocs(
+          query(
+            collection(db, "form_submissions"),
+            orderBy("submittedAt", "desc")
+          )
+        );
         cache = [];
-        snap.forEach(doc => {
+        snap.forEach((doc) => {
           cache.push({ id: doc.id, ...doc.data() });
         });
         renderCards(cache);
@@ -281,7 +444,8 @@
         if (!user) return false;
         const ok = !!user.email && ADMIN_EMAILS.has(user.email.toLowerCase());
         if (!ok) {
-          noticeEl.textContent = "You are signed in but do not have access to view data. Please use an authorised Google account.";
+          noticeEl.textContent =
+            "You are signed in but do not have access to view data. Please use an authorised Google account.";
           signOut(auth);
         }
         return ok;
@@ -300,8 +464,10 @@
       // Export to Excel (xlsx) using SheetJS
       exportBtn.addEventListener("click", () => {
         if (!cache.length) return;
-        const data = cache.map(r => ({
-          submittedAt: r.submittedAt?.toDate ? r.submittedAt.toDate().toISOString() : (r.submittedAt || ""),
+        const data = cache.map((r) => ({
+          submittedAt: r.submittedAt?.toDate
+            ? r.submittedAt.toDate().toISOString()
+            : r.submittedAt || "",
           company: r.company || "",
           ticker: r.ticker || "",
           contactName: r.contactName || "",
@@ -313,13 +479,18 @@
           contactConsent: !!r.contactConsent,
           pdpaConsent: !!r.pdpaConsent,
           page: r.page || "",
-          userAgent: r.userAgent || ""
+          userAgent: r.userAgent || "",
         }));
         const ws = window.XLSX.utils.json_to_sheet(data);
         const wb = window.XLSX.utils.book_new();
         window.XLSX.utils.book_append_sheet(wb, ws, "Submissions");
-        const wbout = window.XLSX.write(wb, { bookType: "xlsx", type: "array" });
-        const blob = new Blob([wbout], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+        const wbout = window.XLSX.write(wb, {
+          bookType: "xlsx",
+          type: "array",
+        });
+        const blob = new Blob([wbout], {
+          type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
@@ -341,7 +512,8 @@
             noticeEl.textContent = `Loaded ${cache.length} records.`;
           } catch (e) {
             console.error(e);
-            noticeEl.textContent = "Unable to load data (check Firestore rules / network).";
+            noticeEl.textContent =
+              "Unable to load data (check Firestore rules / network).";
           }
         } else {
           statusEl.textContent = "Signed out";
@@ -349,11 +521,10 @@
           document.getElementById("signInBtn").classList.remove("hidden");
           cache = [];
           cardsEl.innerHTML = "";
-          noticeEl.textContent = "Sign in with an authorised Google account to view submissions.";
+          noticeEl.textContent =
+            "Sign in with an authorised Google account to view submissions.";
         }
       });
     </script>
   </body>
-  </html>
-
-
+</html>
