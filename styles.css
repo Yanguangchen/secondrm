@@ -560,6 +560,11 @@ body {
   font-size: 120%;
   line-height: 1.7;
 }
+/* Allow full-width lead copy on service-detail pages (e.g., build-a-market) */
+.service-detail .lead {
+  max-width: 100%;
+  width: 100%;
+}
 
 .grid-2 {
   display: grid;
@@ -807,8 +812,8 @@ body {
 
 /* Service detail (Backstage Strategist) */
 .service-detail .container {
-  max-width: 1200px;
-  width: 70%;
+  max-width: 1100px;
+  width: 92%;
 }
 .service-detail,
 .service-detail p,
@@ -839,6 +844,15 @@ body {
   font-weight: 700;
   font-size: clamp(2.2rem, 5.2vw, 3.2rem);
   margin: 0 0 2px;
+  font-family: "Playfair Display", Georgia, serif !important;
+}
+.service-title-sub {
+  display: block;
+  font-weight: 700;
+  font-size: 1em;
+  color: var(--accent);
+  font-family: "Playfair Display", Georgia, serif !important;
+  margin-top: 0.2em;
 }
 .service-subtitle {
   color: #000;
@@ -862,6 +876,26 @@ body {
 }
 .service-list strong {
   font-weight: 700;
+}
+
+/* Prevent long words/links from overflowing on content-heavy pages */
+.service-detail h1,
+.service-detail h2,
+.service-detail h3,
+.service-detail p,
+.service-detail li {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* Better readability for dense lists/paragraphs */
+.service-detail .service-list li {
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.service-detail .section h2 {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 860px) {
@@ -888,12 +922,40 @@ body {
   }
   /* Service detail: make container nearly full-width on mobile */
   .service-detail .container {
-    width: 90%;
+    width: 94%;
+  }
+  .service-title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    line-height: 1.2;
+  }
+  .service-title-sub {
+    font-size: 0.95em;
+  }
+  .service-subtitle {
+    font-size: 1.05rem;
+  }
+  .section {
+    padding: 40px 0;
+  }
+}
+.service-detail .service-list li { /* default already adjusted above */ }
+@media (max-width: 720px) {
+  .service-detail .service-list li {
+    font-size: 0.95rem;
+    line-height: 1.55;
   }
 }
 .item-title {
   font-weight: 600;
   color: #333;
+}
+
+/* Programme Details: keep session titles compact to avoid wraps */
+.service-detail .item-title {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.25;
+  margin-bottom: 6px;
+  white-space: normal;
 }
 
 .muted {

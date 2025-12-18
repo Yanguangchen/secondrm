@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="canonical" href="https://secondrm.com/forms.html" />
+    <link rel="canonical" href="https://secondrm.com/register.html" />
     <!-- Google reCAPTCHA v2 (checkbox) -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
@@ -69,7 +69,7 @@
         margin-top: 8px;
         justify-items: start; /* keep the checkbox+label pairs left-aligned */
       }
-      .checks label { font-weight: 500; display: inline-flex; align-items: center; gap: 8px; flex-direction: row-reverse; text-align: left; }
+      .checks label { font-weight: 500; display: inline-flex; align-items: center; gap: 8px; flex-direction: row; text-align: left; }
       /* Ensure checkbox inputs don't fill the whole row like text inputs */
       .sr-form input[type="checkbox"] { width: auto; height: auto; }
       .submit-row {
@@ -171,7 +171,7 @@
                 <br /><br />
                 We will not share your data with unrelated third parties without your consent.
               </p>
-              <label style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; flex-direction: row-reverse;">
+              <label style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; flex-direction: row;">
                 <input type="checkbox" name="pdpaConsent" required />
                 <span><strong>I consent</strong> to the collection, use, and disclosure of my personal data by Second Room for the purposes set out in this form.</span>
               </label>
