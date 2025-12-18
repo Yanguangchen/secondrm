@@ -898,6 +898,23 @@ body {
   margin-bottom: 10px;
 }
 
+/* Programme Details: consistent spacing between items */
+.service-detail .list > div {
+  margin-bottom: 16px;
+}
+.service-detail .list > div:last-child {
+  margin-bottom: 0;
+}
+.service-detail .list > div .item-title {
+  margin-bottom: 6px;
+}
+.service-detail .list > div p {
+  margin: 6px 0 0;
+}
+/* Slight bottom margin for loose paragraphs preceding the list */
+.service-detail .section p {
+  margin-bottom: 10px;
+}
 @media (max-width: 860px) {
   .behind-grid {
     grid-template-columns: 1fr;
@@ -960,6 +977,24 @@ body {
 
 .muted {
   color: #7a7a7a;
+}
+
+/* Inline link styled as a button (for single-word CTAs like 'here') */
+.link-button {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--accent);
+  color: #fff !important;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.link-button:hover {
+  background: #c6523b;
+  border-color: #c6523b;
+  text-decoration: none;
 }
 
 /* Footer */
