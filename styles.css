@@ -382,6 +382,21 @@ body {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
 }
 
+/* Enlarge hero image on service/detail pages like build-a-market */
+.service-detail .hero-figure {
+  max-width: 1100px;
+}
+@media (max-width: 1200px) {
+  .service-detail .hero-figure { max-width: 95%; }
+}
+@media (max-width: 860px) {
+  .service-detail .hero-figure { max-width: 100%; }
+}
+/* Make only the top (first) section a bit wider for hero image */
+.service-detail .section:first-of-type .container {
+  width: 90%;
+  max-width: 1200px;
+}
 .lede {
   max-width: 680px;
   margin: 0 auto 22px;
@@ -894,6 +909,10 @@ body {
   line-height: 1.7;
   margin-bottom: 12px;
 }
+.service-detail .compact-list li {
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
 .service-detail .section h2 {
   margin-bottom: 10px;
 }
@@ -914,6 +933,17 @@ body {
 /* Slight bottom margin for loose paragraphs preceding the list */
 .service-detail .section p {
   margin-bottom: 10px;
+}
+
+/* Build-a-market: make item titles same size as body text within Programme Details list */
+.build-market .list .item-title {
+  font-size: 1.25rem !important;
+  line-height: 1.0 !important;
+  font-weight: 700 !important;
+}
+.build-market .list p {
+  font-size: 1.25rem !important;
+  line-height: 1.0 !important;
 }
 @media (max-width: 860px) {
   .behind-grid {
@@ -979,6 +1009,24 @@ body {
   color: #7a7a7a;
 }
 
+/* Build-a-market page: reduce vertical padding inside containers only on this page */
+.build-market .container {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Ensure hero CTA is left-aligned on build-a-market */
+.build-market .section:first-of-type .cta-wrap {
+  text-align: left !important;
+}
+/* Force non-italic in hero for button and helper text */
+.build-market .service-hero .button {
+  font-style: normal !important;
+}
+.build-market .service-hero p {
+  font-style: normal !important;
+  text-align: left !important;
+}
 /* Inline link styled as a button (for single-word CTAs like 'here') */
 .link-button {
   display: inline-block;
