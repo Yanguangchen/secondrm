@@ -175,7 +175,7 @@
           </div>
           <div>
             <span id="authStatus" class="pill muted">Signed out</span>
-            <button id="signInBtn" class="button" style="margin-left: 8px">
+          <button id="signInBtn" class="button" style="margin-left: 8px; border: 1.5px solid #000; color: #000; background: #fff;">
               Sign in with Google
             </button>
             <button
@@ -276,6 +276,45 @@
       const noticeEl = document.getElementById("notice");
 
       let cache = [];
+
+      function renderSignedOutCTA() {
+        if (!noticeEl) return;
+        noticeEl.innerHTML =
+          'Sign in with an authorised Google account to view submissions. ' +
+          '<button id="signInBtnInline" class="button" style="margin-left:8px; border: 1.5px solid #000; color:#000; background:#fff;">Sign in with Google</button>';
+        const inline = document.getElementById("signInBtnInline");
+        if (inline) {
+          inline.addEventListener("click", async () => {
+            try {
+              await signInWithPopup(auth, provider);
+            } catch (e) {
+              console.error(e);
+              alert("Sign-in failed.");
+            }
+          });
+        }
+        // Also inject a CTA in the admin bar area for visibility
+        const actionsWrap = document.querySelector(".admin-actions");
+        if (actionsWrap && !document.getElementById("signInBtnBar")) {
+          const cta = document.createElement("button");
+          cta.id = "signInBtnBar";
+          cta.className = "button";
+          cta.textContent = "Sign in with Google";
+          cta.style.marginLeft = "8px";
+          cta.style.border = "1.5px solid #000";
+          cta.style.color = "#000";
+          cta.style.background = "#fff";
+          cta.addEventListener("click", async () => {
+            try {
+              await signInWithPopup(auth, provider);
+            } catch (e) {
+              console.error(e);
+              alert("Sign-in failed.");
+            }
+          });
+          actionsWrap.appendChild(cta);
+        }
+      }
 
       function renderCards(items) {
         const q = (searchEl.value || "").toLowerCase();
@@ -506,6 +545,11 @@
           document.getElementById("signOutBtn").classList.remove("hidden");
           document.getElementById("signInBtn").classList.add("hidden");
           noticeEl.textContent = "Loading submissions…";
+          // Remove any inline sign-in button if present
+          const inline = document.getElementById("signInBtnInline");
+          if (inline) inline.remove();
+          const barBtn = document.getElementById("signInBtnBar");
+          if (barBtn) barBtn.remove();
           try {
             await loadData();
             noticeEl.textContent = `Loaded ${cache.length} records.`;
@@ -520,8 +564,7 @@
           document.getElementById("signInBtn").classList.remove("hidden");
           cache = [];
           cardsEl.innerHTML = "";
-          noticeEl.textContent =
-            "Sign in with an authorised Google account to view submissions.";
+          renderSignedOutCTA();
         }
       });
     </script>
