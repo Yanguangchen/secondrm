@@ -21,6 +21,68 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Reduce vertical spacing between sections across the page */
+      .build-market .section {
+        padding-top: 1% !important;
+        padding-bottom: 1% !important;
+      }
+
+      /* Desktop normalization for this page */
+      @media (min-width: 721px) {
+        /* Hero title hierarchy (desktop) */
+        .build-market .hero-topline {
+          font-size: 1.75rem !important;
+          line-height: 1.25 !important;
+          letter-spacing: 0.01em;
+        }
+        .build-market .service-title-sub {
+          font-size: 2.4rem !important;
+          line-height: 1.2 !important;
+        }
+
+        .build-market p,
+        .build-market li,
+        .build-market .lead {
+          font-size: 1.1rem !important;
+          line-height: 1.6 !important;
+        }
+        .build-market .item-title {
+          font-size: 1.1rem !important;
+          line-height: 1.6 !important;
+        }
+        .build-market h2 {
+          margin-top: 10px !important;
+          margin-bottom: 10px !important;
+        }
+        .build-market p {
+          margin-top: 8px !important;
+          margin-bottom: 12px !important;
+        }
+        .build-market ul {
+          margin-top: 8px !important;
+          margin-bottom: 12px !important;
+          padding-left: 1.25rem;
+        }
+        /* Ensure Programme Details block follows same sizing on desktop */
+        #programme-details,
+        #programme-details p,
+        #programme-details li,
+        #programme-details .item-title {
+          font-size: 1.1rem !important;
+          line-height: 1.6 !important;
+        }
+      }
+      /* Toggle duplicated "Who This Is For" headers by viewport */
+      @media (min-width: 721px) {
+        #who-title-desktop { display: block !important; }
+        #who-title-h3 { display: none !important; }
+      }
+      @media (max-width: 720px) {
+        #who-title-desktop { display: none !important; }
+        #who-title-h3 { display: block !important; }
+      }
+    </style>
     <link rel="canonical" href="https://secondrm.com/corebuildlab.html" />
   </head>
   <body class="service-detail build-market">
@@ -55,7 +117,7 @@
         <div class="container" style="max-width: 1200px">
           <div class="service-hero">
             <div>
-                <h2 style="color: var(--accent); font-family: 'Playfair Display', Georgia, serif !important; font-size: 1.3rem;">INSTITUTIONAL-GRADE IR — CORE BUILD LAB</h2>
+                <h2 class="hero-topline" style="color: var(--accent); font-family: 'Playfair Display', Georgia, serif !important; font-size: 1.3rem;">INSTITUTIONAL-GRADE IR — CORE BUILD LAB</h2>
                 <p class="service-title-sub" style="font-size: 1.8em; margin-top: 8px;">Build an Institutional-Grade Investor Relations Operating
                   System in 4-6 Weeks</p>
               </h1>
@@ -68,7 +130,7 @@
                   #top-cta { margin-top: 15% !important; }
                 }
               </style>
-              <p id="top-cta" class="cta-wrap reveal reveal-delay-3" style="margin-top: 5%; text-align: left;">
+              <p id="top-cta" class="cta-wrap reveal reveal-delay-3" style="margin-top:20% !important; text-align: left;">
                 <a class="button" href="register.html" style="border: 2px solid #000; color: #000; text-decoration: underline; font-style: normal !important;">
                   Register Interest
                 </a>
@@ -106,13 +168,11 @@
             using your real numbers, your constraints, and your stakeholder reality.          </p>
       </section>
 
-      
-
       <section class="section" style="padding-top: 2%; padding-bottom: 2%;">
         <div class="container" style="max-width: 1000px">
-          <h2 class="reveal" style="font-family: 'Playfair Display', Georgia, serif !important; color: var(--accent); font-weight: 400;">What You Will Walk Away With
+          <h2 class="reveal" style="font-family: 'Playfair Display', Georgia, serif !important; color: var(--accent); font-weight: 400; margin-top: 10px;">What You Will Walk Away With
           </h2>
-          <p class="reveal" style="margin-bottom: 3%; margin-top: 3%;">By the end, you will have working IR assets you can run quarter after quarter:</p>
+          <p class="reveal" style="margin-bottom: 1%; margin-top: 1%;">By the end, you will have working IR assets you can run quarter after quarter:</p>
           <ul style="margin-left: 5% !important;" class="service-list compact-list reveal reveal-delay-1">
             <li><strong>IR Mandate &amp; Objectives Note</strong> (Leadership-aligned North Star)</li>
             <li><strong>12‑month IR calendar + targeting list + monthly IR check‑in</strong> (A practical cadence linking disclosure, engagement, and feedback.)</li>
@@ -178,7 +238,8 @@
               </ul>
             </div>
             <div>
-              <h3 class="item-title">Who This Is For </h3>
+              <h2 id="who-title-desktop" class="reveal" style="font-family: 'Playfair Display', Georgia, serif !important; color: var(--accent); font-weight: 400;">Who This Is For</h2>
+              <h3 id="who-title-h3" class="item-title">Who This Is For </h3>
               <p>Leadership teams ready to commit time and decisions — typically CEO and/or CFO + IR/Finance lead (up to 4 participants).</p>
               <p>This is for teams who want an operating system and outputs they can use immediately.</p>
             </div>
@@ -189,7 +250,7 @@
         <div class="container" style="max-width: 1000px; font-style: normal !important;">
           <h2 class="reveal" style="font-family: 'Playfair Display', Georgia, serif !important; color: var(--accent); font-weight: 400;">How It’s Conducted
           </h2>
-          <p class="reveal" style="margin-bottom: 3%; margin-top: 3%;">By the end, you will have working IR assets you can run quarter after quarter:</p>
+          <p class="reveal">By the end, you will have working IR assets you can run quarter after quarter:</p>
           <ul style="margin-left: 5% !important;" class="service-list compact-list reveal reveal-delay-1">
             <li><strong>Four focused working sessions (2 hours each)</strong></li>
             <li><strong>Each session ends with a usable output and a named owner for next actions</strong></li>
@@ -214,14 +275,12 @@
         </div>
       </section>
 
-      <section class="section" style="padding-top: 2%; padding-bottom: 2%;">
+      <section class="section" style="padding-top: 5%; padding-bottom: 2%;">
         <div class="container flex-left" style="max-width: 1000px; text-align: left">
-          <p class="cta-wrap reveal" style="margin-top: 0;">
-            <a
-              class="button"
-              href="register.html"
-              style="border: 2px solid #000; color: #000; text-decoration: underline; font-size: 1.1rem; font-weight: 700; text-decoration: none!important; text-align: left;"
-            >Register Interest</a>
+          <p id="top-cta" class="cta-wrap reveal reveal-delay-3" style="margin-top: 10%; text-align: left;">
+            <a class="button" href="register.html" style="border: 2px solid #000; color: #000; text-decoration: underline; font-style: normal !important;">
+              Register Interest
+            </a>
           </p>
           <p class="lead reveal reveal-delay-1" style="max-width: 720px; text-decoration: none!important; font-size: 100%;">
             We’ll contact you with next steps and available delivery windows. Please email
