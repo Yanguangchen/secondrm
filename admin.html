@@ -133,6 +133,44 @@
         justify-content: flex-start;
         margin-top: 6px;
       }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0 8px;
+      }
+      .tab-btn {
+        border: 1.5px solid #000;
+        background: #fff;
+        padding: 8px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .tab-btn.active {
+        background: #000;
+        color: #fff;
+      }
+      .tab-panel {
+        margin-top: 8px;
+      }
+      .card textarea {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 8px;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        min-height: 110px;
+      }
+      .field-key {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+        color: #444;
+      }
+      .soft-text {
+        color: #444;
+      }
     </style>
   </head>
   <body>
@@ -163,19 +201,16 @@
     <main class="section">
       <div class="container admin-wrap">
         <h1 class="service-title">Admin Console</h1>
-        <div class="admin-bar">
-          <div class="admin-actions">
-            <input
-              id="search"
-              class="search"
-              type="search"
-              placeholder="Search name, company, email, ticker…"
-            />
-            <button id="exportBtn" class="btn">Export CSV</button>
-          </div>
+        <div class="admin-bar" style="align-items: flex-start">
           <div>
             <span id="authStatus" class="pill muted">Signed out</span>
-          <button id="signInBtn" class="button" style="margin-left: 8px; border: 1.5px solid #000; color: #000; background: #fff;">
+          </div>
+          <div>
+            <button
+              id="signInBtn"
+              class="button"
+              style="margin-left: 8px; border: 1.5px solid #000; color: #000; background: #fff;"
+            >
               Sign in with Google
             </button>
             <button
@@ -188,9 +223,69 @@
           </div>
         </div>
 
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="submissions">
+            Form submissions
+          </button>
+          <button class="tab-btn" data-tab="content">
+            Core Build Lab content
+          </button>
+        </div>
+
         <div id="notice" class="muted" style="margin-bottom: 10px"></div>
 
-        <div id="cards" class="cards-grid"></div>
+        <section id="tab-submissions" class="tab-panel">
+          <div class="admin-bar">
+            <div class="admin-actions">
+              <input
+                id="search"
+                class="search"
+                type="search"
+                placeholder="Search name, company, email, ticker…"
+              />
+              <button id="exportBtn" class="btn">Export CSV</button>
+            </div>
+          </div>
+          <div id="cards" class="cards-grid"></div>
+        </section>
+
+        <section id="tab-content" class="tab-panel hidden">
+          <div class="card">
+            <h3>Core Build Lab copy</h3>
+            <p class="soft-text">
+              Edit the text that appears on <code>corebuildlab.html</code>.
+              HTML is allowed for lists and emphasis. Changes save to Firestore
+              and appear on the public page after refresh.
+            </p>
+          </div>
+          <div id="contentNotice" class="muted" style="margin-bottom: 8px"></div>
+          <div id="contentFields" class="cards-grid"></div>
+          <div class="card">
+            <h3>Add or overwrite a field</h3>
+            <div class="row">
+              <div>
+                <label class="muted" for="newFieldKey">Field key</label>
+                <input
+                  id="newFieldKey"
+                  type="text"
+                  placeholder="hero_title"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <label class="muted" for="newFieldValue">Value (text or HTML)</label>
+            <textarea id="newFieldValue" rows="4" placeholder="Enter content"></textarea>
+            <div class="row" style="gap:6px; align-items:center; margin-top:4px;">
+              <span class="muted" style="font-size:12px;">Formatting:</span>
+              <button class="btn" id="newFieldBullets" style="padding:4px 8px;">Insert bullets</button>
+              <button class="btn" id="newFieldBr" style="padding:4px 8px;">Insert line break</button>
+            </div>
+            <div class="card-actions">
+              <button class="btn ok" id="addFieldBtn">Save field</button>
+              <button class="btn" id="clearFieldBtn">Clear</button>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 
@@ -238,6 +333,9 @@
         doc,
         updateDoc,
         deleteDoc,
+        getDoc,
+        setDoc,
+        deleteField,
       } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
       import {
         getAuth,
@@ -274,8 +372,246 @@
       const searchEl = document.getElementById("search");
       const exportBtn = document.getElementById("exportBtn");
       const noticeEl = document.getElementById("notice");
+      const contentFieldsEl = document.getElementById("contentFields");
+      const contentNoticeEl = document.getElementById("contentNotice");
+      const addFieldBtn = document.getElementById("addFieldBtn");
+      const clearFieldBtn = document.getElementById("clearFieldBtn");
+      const newFieldKeyEl = document.getElementById("newFieldKey");
+      const newFieldValueEl = document.getElementById("newFieldValue");
+      const newFieldBulletsBtn = document.getElementById("newFieldBullets");
+      const newFieldBrBtn = document.getElementById("newFieldBr");
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabPanels = {
+        submissions: document.getElementById("tab-submissions"),
+        content: document.getElementById("tab-content"),
+      };
 
       let cache = [];
+      let activeTab = "submissions";
+      const contentDocRef = doc(db, "page_content", "corebuildlab");
+      let contentState = {};
+      let contentLoaded = false;
+
+      const CONTENT_FIELDS = [
+        {
+          key: "hero_topline",
+          label: "Hero topline",
+          default: "INSTITUTIONAL-GRADE IR — CORE BUILD LAB",
+          rows: 2,
+        },
+        {
+          key: "hero_title",
+          label: "Hero title",
+          default:
+            "Build an Institutional-Grade Investor Relations Operating System in 4-6 Weeks",
+          rows: 2,
+        },
+        {
+          key: "hero_subtitle",
+          label: "Hero subtitle",
+          default:
+            "A 4-session, in-company build for SGX-listed teams to install IR fundamentals that investors recognise: mandate, cadence, equity story, disclosure discipline, and rehearsal readiness—co-created using your real numbers and announcements.",
+          rows: 4,
+        },
+        {
+          key: "hero_cta_label",
+          label: "Hero CTA label",
+          default: "Register Interest",
+          rows: 2,
+        },
+        {
+          key: "hero_cta_href",
+          label: "Hero CTA link",
+          default: "register.html",
+          rows: 2,
+        },
+        {
+          key: "at_glance_title",
+          label: "At a Glance title",
+          default: "At A Glance",
+          rows: 2,
+        },
+        {
+          key: "at_glance_list",
+          label: "At a Glance list (HTML)",
+          default: `<li><strong>Programme fee:</strong> S$8,500<strong> (Early-bird: Confirm engagements by 30 Jan 2026 for 15% off)</strong></li>
+<li><strong>Format:</strong> 4 × 2-hour sessions across 4–6 weeks</li>
+<li><strong>Delivery:</strong> Live — your office (Singapore) or live online</li>
+<li><strong>Recommended</strong> participants: CEO/CFO + IR/Finance leads (up to 4)</li>`,
+          rows: 6,
+        },
+        {
+          key: "why_title",
+          label: "Why this lab title",
+          default: "Why This Lab",
+          rows: 2,
+        },
+        {
+          key: "why_copy",
+          label: "Why this lab copy",
+          default:
+            "Good IR isn’t just compliant disclosure—it’s a repeatable operating model that creates predictability, improves market understanding, and builds investor confidence over time. This Lab helps leadership teams move from ad-hoc IR to a disciplined quarterly rhythm, using your real numbers, your constraints, and your stakeholder reality.",
+          rows: 4,
+        },
+        {
+          key: "takeaway_title",
+          label: "Takeaways title",
+          default: "What You Will Walk Away With",
+          rows: 2,
+        },
+        {
+          key: "takeaway_intro",
+          label: "Takeaways intro",
+          default:
+            "By the end, you will have working IR assets you can run quarter after quarter:",
+          rows: 2,
+        },
+        {
+          key: "takeaway_list",
+          label: "Takeaways list (HTML)",
+          default: `<li><strong>IR Mandate &amp; Objectives Note</strong> (Leadership-aligned North Star)</li>
+<li><strong>12‑month IR calendar + targeting list + monthly IR check‑in</strong> (A practical cadence linking disclosure, engagement, and feedback.)</li>
+<li><strong>Equity Story Backbone + Peer Comparison Grid</strong> (A consistent, defensible “how the Street should see you”.)</li>
+<li><strong>Q&amp;A bank</strong> (Hard questions anticipated and rehearsed.)</li>
+<li><strong>Reporting &amp; disclosure improvement plan + IR Charter</strong> (Clearer signals, clearer roles, clearer operating model.)</li>`,
+          rows: 8,
+        },
+        {
+          key: "takeaway_note",
+          label: "Takeaways note (HTML)",
+          default:
+            "<i>These are operational tools built with you inside your business—not generic templates.</i>",
+          rows: 2,
+        },
+        {
+          key: "programme_title",
+          label: "Programme title",
+          default: "Programme Details (4 sessions)",
+          rows: 2,
+        },
+        {
+          key: "programme_intro1",
+          label: "Programme intro line 1",
+          default: "Four focused sessions × 2 hours across 4–6 weeks.",
+          rows: 2,
+        },
+        {
+          key: "programme_intro2",
+          label: "Programme intro line 2",
+          default:
+            "Each session ends with a clear, usable output and ownership for what comes next.",
+          rows: 2,
+        },
+        {
+          key: "programme_sessions",
+          label: "Programme sessions (HTML)",
+          default: `<div>
+  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 1: IR North Star</strong></h3>
+  <p>Align leadership on why IR exists, what problems it must solve, and what success looks like.</p>
+  <p><strong>Output:</strong> IR Mandate &amp; Objectives Note (co-written)</p>
+</div>
+<div>
+  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 2: IR engine</strong></h3>
+  <p>Calendar, targeting &amp; monthly check-in</p>
+  <p>Build the operating rhythm: cadence, stakeholder priorities, and management check-in.</p>
+  <p><strong>Outputs:</strong> 12-month IR calendar, targeting list, Monthly IR Check-in template</p>
+</div>
+<div>
+  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 3: Equity Story That Travels</strong></h3>
+  <p>Business &amp; financial blocks + peer context</p>
+  <p>Translate operations + numbers into a Street-friendly narrative anchored in peer context.</p>
+  <p><strong>Outputs:</strong> Equity story backbone + peer comparison grid</p>
+</div>
+<div>
+  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 4: Disclosure Discipline &amp; Rehearsal</strong></h3>
+  <p>Reporting, disclosure &amp; rehearsal; IR Charter</p>
+  <p>Apply a disclosure checklist to a real announcement/results release, run a mock investor meeting/mini earnings call, and lock in governance.</p>
+  <p><strong>Outputs:</strong> disclosure checklist applied, rehearsal + Q&amp;A bank, IR Charter (co-drafted)</p>
+</div>
+<div>
+  <h3 class="item-title">Delivery &amp; Availability</h3>
+  <ul>
+    <li>Delivered live (Singapore office) or live online</li>
+    <li><strong>In-office is recommended</strong> for faster alignment and real-time decisions</li>
+    <li><strong>Limited monthly intake</strong>  (in-company deliver)</li>
+  </ul>
+</div>`,
+          rows: 14,
+        },
+        {
+          key: "who_title",
+          label: "Who this is for title",
+          default: "Who This Is For",
+          rows: 2,
+        },
+        {
+          key: "who_body_primary",
+          label: "Who body 1",
+          default:
+            "Leadership teams ready to commit time and decisions — typically CEO and/or CFO + IR/Finance lead (up to 4 participants).",
+          rows: 3,
+        },
+        {
+          key: "who_body_secondary",
+          label: "Who body 2",
+          default:
+            "This is for teams who want an operating system and outputs they can use immediately.",
+          rows: 2,
+        },
+        {
+          key: "how_title",
+          label: "How it’s conducted title",
+          default: "How It’s Conducted",
+          rows: 2,
+        },
+        {
+          key: "how_intro",
+          label: "How it’s conducted intro",
+          default:
+            "By the end, you will have working IR assets you can run quarter after quarter:",
+          rows: 2,
+        },
+        {
+          key: "how_list",
+          label: "How it’s conducted list (HTML)",
+          default: `<li><strong>Four focused working sessions (2 hours each)</strong></li>
+<li><strong>Each session ends with a usable output and a named owner for next actions</strong></li>
+<li><strong>Designed to reduce rework and prevent “great deck, no system” outcomes</strong></li>`,
+          rows: 6,
+        },
+        {
+          key: "grant_title",
+          label: "Grant support title",
+          default: "Grant Support (SGX Value Unlock - Equip Grant)",
+          rows: 2,
+        },
+        {
+          key: "grant_copy",
+          label: "Grant copy (HTML)",
+          default:
+            'Eligible SGX-listed companies may apply for the SGX Value Unlock “Equip” Grant (subject to SGX eligibility and approval) <strong>Second Room is a panel service provider for the Equip grant.</strong><br><br>Learn more on the SGX Value Unlock page <a href="https://www.sgx.com/securities/value-unlock?utm_medium=display&amp;utm_source=sgx-web&amp;utm_campaign=ValueUnlock&amp;utm_term=05122025&amp;utm_content=InFocus" target="_blank" rel="noopener" style="text-decoration: underline; font-style: normal !important;">here</a>.',
+          rows: 6,
+        },
+        {
+          key: "bottom_cta_label",
+          label: "Bottom CTA label",
+          default: "Register Interest",
+          rows: 2,
+        },
+        {
+          key: "bottom_cta_href",
+          label: "Bottom CTA link",
+          default: "register.html",
+          rows: 2,
+        },
+        {
+          key: "bottom_cta_copy",
+          label: "Bottom CTA copy",
+          default:
+            "We’ll contact you with next steps and available delivery windows. Please email hello@secondrm.com for enquires.",
+          rows: 3,
+        },
+      ];
 
       function renderSignedOutCTA() {
         if (!noticeEl) return;
@@ -464,6 +800,226 @@
         }, 2000);
       }
 
+      function renderTabs(tab) {
+        tabButtons.forEach((btn) =>
+          btn.classList.toggle("active", btn.dataset.tab === tab)
+        );
+        Object.entries(tabPanels).forEach(([key, panel]) => {
+          if (!panel) return;
+          panel.classList.toggle("hidden", key !== tab);
+        });
+      }
+
+      function requireContentLoad() {
+        if (contentLoaded) return;
+        loadContent();
+      }
+
+      function orderedContentKeys() {
+        const known = CONTENT_FIELDS.map((f) => f.key);
+        const extra = Object.keys(contentState || {}).filter(
+          (k) => !known.includes(k)
+        );
+        return [...known, ...extra];
+      }
+
+      function insertSnippet(textarea, snippet) {
+        if (!textarea) return;
+        const start = textarea.selectionStart ?? textarea.value.length;
+        const end = textarea.selectionEnd ?? textarea.value.length;
+        const before = textarea.value.slice(0, start);
+        const after = textarea.value.slice(end);
+        textarea.value = `${before}${snippet}${after}`;
+        const pos = start + snippet.length;
+        textarea.focus();
+        textarea.setSelectionRange(pos, pos);
+      }
+
+      function renderContentFields() {
+        if (!contentFieldsEl) return;
+        contentFieldsEl.innerHTML = "";
+        const keys = orderedContentKeys();
+        keys.forEach((key) => {
+          const cfg = CONTENT_FIELDS.find((f) => f.key === key) || {
+            label: key,
+            rows: 3,
+          };
+          const card = document.createElement("div");
+          card.className = "card";
+          card.dataset.key = key;
+          const value = contentState[key] ?? cfg.default ?? "";
+          card.innerHTML = `
+            <div class="row" style="align-items: baseline; justify-content: space-between;">
+              <div>
+                <h3>${escapeHtml(cfg.label || key)}</h3>
+                <div class="field-key">${escapeHtml(key)}</div>
+              </div>
+              ${
+                cfg.default
+                  ? '<span class="badge muted">Has default</span>'
+                  : ""
+              }
+            </div>
+            <textarea rows="${cfg.rows || 3}" class="content-input">${escapeHtml(
+            value
+          )}</textarea>
+            <div class="row" style="gap:6px; align-items:center; margin-top:4px;">
+              <span class="muted" style="font-size:12px;">Formatting:</span>
+              <button class="btn btn-insert-bullets" style="padding:4px 8px;">Insert bullets</button>
+              <button class="btn btn-insert-br" style="padding:4px 8px;">Insert line break</button>
+            </div>
+            <div class="card-actions">
+              <button class="btn ok btn-save-content">Save</button>
+              <button class="btn btn-reset-content">Reset to default</button>
+              <button class="btn danger btn-delete-content">Delete</button>
+            </div>
+          `;
+
+          const textarea = card.querySelector("textarea");
+          const btnSave = card.querySelector(".btn-save-content");
+          const btnReset = card.querySelector(".btn-reset-content");
+          const btnDelete = card.querySelector(".btn-delete-content");
+          const btnBullets = card.querySelector(".btn-insert-bullets");
+          const btnBr = card.querySelector(".btn-insert-br");
+
+          btnBullets?.addEventListener("click", () =>
+            insertSnippet(
+              textarea,
+              "<ul>\\n  <li>Point 1</li>\\n  <li>Point 2</li>\\n</ul>"
+            )
+          );
+          btnBr?.addEventListener("click", () => insertSnippet(textarea, "<br>"));
+
+          btnSave?.addEventListener("click", async () => {
+            btnSave.disabled = true;
+            try {
+              await setDoc(
+                contentDocRef,
+                { [key]: textarea.value },
+                { merge: true }
+              );
+              contentState[key] = textarea.value;
+              flash(`Saved ${key}`);
+            } catch (e) {
+              console.error(e);
+              alert("Unable to save this field.");
+            } finally {
+              btnSave.disabled = false;
+            }
+          });
+
+          btnReset?.addEventListener("click", async () => {
+            if (!cfg.default) {
+              textarea.value = "";
+              return;
+            }
+            btnReset.disabled = true;
+            try {
+              await setDoc(
+                contentDocRef,
+                { [key]: cfg.default },
+                { merge: true }
+              );
+              contentState[key] = cfg.default;
+              textarea.value = cfg.default;
+              flash(`Reset ${key}`);
+            } catch (e) {
+              console.error(e);
+              alert("Unable to reset this field.");
+            } finally {
+              btnReset.disabled = false;
+            }
+          });
+
+          btnDelete?.addEventListener("click", async () => {
+            if (
+              !confirm(
+                `Delete the field "${key}"? The page will fall back to its default text if one exists.`
+              )
+            )
+              return;
+            btnDelete.disabled = true;
+            try {
+              await setDoc(contentDocRef, {}, { merge: true });
+              await updateDoc(contentDocRef, { [key]: deleteField() });
+              delete contentState[key];
+              renderContentFields();
+              flash(`Deleted ${key}`);
+            } catch (e) {
+              console.error(e);
+              alert("Unable to delete this field.");
+              btnDelete.disabled = false;
+            }
+          });
+
+          contentFieldsEl.appendChild(card);
+        });
+      }
+
+      async function loadContent() {
+        if (!contentNoticeEl) return;
+        contentNoticeEl.textContent = "Loading content…";
+        try {
+          const snap = await getDoc(contentDocRef);
+          contentState = snap.exists() ? snap.data() : {};
+          renderContentFields();
+          contentNoticeEl.textContent = `Loaded ${Object.keys(contentState).length} saved fields.`;
+          contentLoaded = true;
+        } catch (e) {
+          console.error(e);
+          contentNoticeEl.textContent =
+            "Unable to load content (check Firestore rules / network).";
+        }
+      }
+
+      tabButtons.forEach((btn) =>
+        btn.addEventListener("click", () => {
+          const tab = btn.dataset.tab;
+          if (!tab) return;
+          activeTab = tab;
+          renderTabs(tab);
+          if (tab === "content" && auth.currentUser && requireAdmin(auth.currentUser)) {
+            requireContentLoad();
+          }
+        })
+      );
+
+      newFieldBulletsBtn?.addEventListener("click", () =>
+        insertSnippet(
+          newFieldValueEl,
+          "<ul>\\n  <li>Point 1</li>\\n  <li>Point 2</li>\\n</ul>"
+        )
+      );
+      newFieldBrBtn?.addEventListener("click", () =>
+        insertSnippet(newFieldValueEl, "<br>")
+      );
+
+      addFieldBtn?.addEventListener("click", async () => {
+        const key = (newFieldKeyEl?.value || "").trim();
+        const value = newFieldValueEl?.value ?? "";
+        if (!key) {
+          alert("Please provide a field key.");
+          return;
+        }
+        addFieldBtn.disabled = true;
+        try {
+          await setDoc(contentDocRef, { [key]: value }, { merge: true });
+          contentState[key] = value;
+          renderContentFields();
+          flash(`Saved ${key}`);
+        } catch (e) {
+          console.error(e);
+          alert("Unable to save this field.");
+        } finally {
+          addFieldBtn.disabled = false;
+        }
+      });
+
+      clearFieldBtn?.addEventListener("click", () => {
+        if (newFieldKeyEl) newFieldKeyEl.value = "";
+        if (newFieldValueEl) newFieldValueEl.value = "";
+      });
+
       async function loadData() {
         const snap = await getDocs(
           query(
@@ -558,6 +1114,11 @@
             noticeEl.textContent =
               "Unable to load data (check Firestore rules / network).";
           }
+          if (activeTab === "content") {
+            requireContentLoad();
+          } else {
+            contentLoaded = false;
+          }
         } else {
           statusEl.textContent = "Signed out";
           document.getElementById("signOutBtn").classList.add("hidden");
@@ -565,6 +1126,10 @@
           cache = [];
           cardsEl.innerHTML = "";
           renderSignedOutCTA();
+          contentState = {};
+          contentLoaded = false;
+          if (contentFieldsEl) contentFieldsEl.innerHTML = "";
+          if (contentNoticeEl) contentNoticeEl.textContent = "";
         }
       });
     </script>
