@@ -129,18 +129,36 @@ ol {
 ul > li,
 ol > li {
   position: relative;
-  padding-left: 0;
+  padding-left: 1.1rem; /* reserve space for marker INSIDE the content column */
 }
 
 ul > li::before {
   content: "•";
   position: absolute;
-  left: -1.1rem; /* gutter */
+  left: 0; /* keep marker inside content so it doesn't stick out past headings */
   top: 0.05em;
   width: 1.1rem;
   text-align: center;
   font-family: Arial, sans-serif;
   font-weight: 900;
+}
+
+/* Ordered lists: keep numbers visible with the same alignment behavior */
+ol {
+  counter-reset: olitem;
+}
+ol > li {
+  counter-increment: olitem;
+  padding-left: 1.6rem;
+}
+ol > li::before {
+  content: counter(olitem) ".";
+  position: absolute;
+  left: 0;
+  top: 0.02em;
+  width: 1.6rem;
+  text-align: left;
+  font-weight: 700;
 }
 
 /* Full-height layout for contact page */
