@@ -90,10 +90,52 @@
         #who-title-desktop { display: none !important; }
         #who-title-h3 { display: block !important; }
       }
+
+      /* --- Throbber: hide default state until Firestore content load completes --- */
+      #srThrobber {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.92);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.18s ease;
+      }
+      body.is-loading #srThrobber {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      body.is-loading main {
+        visibility: hidden;
+      }
+      .sr-spinner {
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        border: 3px solid rgba(0, 0, 0, 0.12);
+        border-top-color: rgba(0, 0, 0, 0.9);
+        animation: srSpin 0.8s linear infinite;
+      }
+      @keyframes srSpin {
+        to { transform: rotate(360deg); }
+      }
     </style>
     <link rel="canonical" href="https://secondrm.com/corebuildlab.html" />
   </head>
-  <body class="service-detail build-market">
+  <body class="service-detail build-market is-loading">
+    <div id="srThrobber" role="status" aria-live="polite" aria-label="Loading">
+      <div class="sr-spinner" aria-hidden="true"></div>
+    </div>
+    <noscript>
+      <style>
+        body.is-loading main { visibility: visible; }
+        #srThrobber { display: none; }
+      </style>
+    </noscript>
     <header class="site-header">
       <div class="container header-grid">
         <div class="brand">
@@ -360,87 +402,9 @@
         appId: "1:468878187246:web:3e3f336bfcaaadd71131ff",
         measurementId: "G-908P86VVVR",
       };
-
-      const DEFAULT_CONTENT = {
-        hero_topline: "INSTITUTIONAL-GRADE IR — CORE BUILD LAB",
-        hero_title:
-          "Build an Institutional-Grade Investor Relations Operating System in 4-6 Weeks",
-        hero_subtitle:
-          "A 4-session, in-company build for SGX-listed teams to install IR fundamentals that investors recognise: mandate, cadence, equity story, disclosure discipline, and rehearsal readiness—co-created using your real numbers and announcements.",
-        hero_cta_label: "Register Interest",
-        hero_cta_href: "register.html",
-        at_glance_title: "At A Glance",
-        at_glance_list: `<li><strong>Programme fee:</strong> S$8,500<strong> (Early-bird: Confirm engagements by 30 Jan 2026 for 15% off)</strong></li>
-<li><strong>Format:</strong> 4 × 2-hour sessions across 4–6 weeks</li>
-<li><strong>Delivery:</strong> Live — your office (Singapore) or live online</li>
-<li><strong>Recommended</strong> participants: CEO/CFO + IR/Finance leads (up to 4)</li>`,
-        why_title: "Why This Lab",
-        why_copy:
-          "Good IR isn’t just compliant disclosure—it’s a repeatable operating model that creates predictability, improves market understanding, and builds investor confidence over time. This Lab helps leadership teams move from ad-hoc IR to a disciplined quarterly rhythm, using your real numbers, your constraints, and your stakeholder reality.",
-        takeaway_title: "What You Will Walk Away With",
-        takeaway_intro:
-          "By the end, you will have working IR assets you can run quarter after quarter:",
-        takeaway_list: `<li><strong>IR Mandate &amp; Objectives Note</strong> (Leadership-aligned North Star)</li>
-<li><strong>12‑month IR calendar + targeting list + monthly IR check‑in</strong> (A practical cadence linking disclosure, engagement, and feedback.)</li>
-<li><strong>Equity Story Backbone + Peer Comparison Grid</strong> (A consistent, defensible “how the Street should see you”.)</li>
-<li><strong>Q&amp;A bank</strong> (Hard questions anticipated and rehearsed.)</li>
-<li><strong>Reporting &amp; disclosure improvement plan + IR Charter</strong> (Clearer signals, clearer roles, clearer operating model.)</li>`,
-        takeaway_note:
-          "<i>These are operational tools built with you inside your business—not generic templates.</i>",
-        programme_title: "Programme Details (4 sessions)",
-        programme_intro1: "Four focused sessions × 2 hours across 4–6 weeks.",
-        programme_intro2:
-          "Each session ends with a clear, usable output and ownership for what comes next.",
-        programme_sessions: `<div>
-  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 1: IR North Star</strong></h3>
-  <p>Align leadership on why IR exists, what problems it must solve, and what success looks like.</p>
-  <p><strong>Output:</strong> IR Mandate &amp; Objectives Note (co-written)</p>
-</div>
-<div>
-  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 2: IR engine</strong></h3>
-  <p>Calendar, targeting &amp; monthly check-in</p>
-  <p>Build the operating rhythm: cadence, stakeholder priorities, and management check-in.</p>
-  <p><strong>Outputs:</strong> 12-month IR calendar, targeting list, Monthly IR Check-in template</p>
-</div>
-<div>
-  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 3: Equity Story That Travels</strong></h3>
-  <p>Business &amp; financial blocks + peer context</p>
-  <p>Translate operations + numbers into a Street-friendly narrative anchored in peer context.</p>
-  <p><strong>Outputs:</strong> Equity story backbone + peer comparison grid</p>
-</div>
-<div>
-  <h3 class="item-title" style="font-size: 1em !important; line-height: 1.6 !important;"><strong>Session 4: Disclosure Discipline &amp; Rehearsal</strong></h3>
-  <p>Reporting, disclosure &amp; rehearsal; IR Charter</p>
-  <p>Apply a disclosure checklist to a real announcement/results release, run a mock investor meeting/mini earnings call, and lock in governance.</p>
-  <p><strong>Outputs:</strong> disclosure checklist applied, rehearsal + Q&amp;A bank, IR Charter (co-drafted)</p>
-</div>
-<div>
-  <h3 class="item-title">Delivery &amp; Availability</h3>
-  <ul>
-    <li>Delivered live (Singapore office) or live online</li>
-    <li><strong>In-office is recommended</strong> for faster alignment and real-time decisions</li>
-    <li><strong>Limited monthly intake</strong>  (in-company deliver)</li>
-  </ul>
-</div>`,
-        who_title: "Who This Is For",
-        who_body_primary:
-          "Leadership teams ready to commit time and decisions — typically CEO and/or CFO + IR/Finance lead (up to 4 participants).",
-        who_body_secondary:
-          "This is for teams who want an operating system and outputs they can use immediately.",
-        how_title: "How It’s Conducted",
-        how_intro:
-          "By the end, you will have working IR assets you can run quarter after quarter:",
-        how_list: `<li><strong>Four focused working sessions (2 hours each)</strong></li>
-<li><strong>Each session ends with a usable output and a named owner for next actions</strong></li>
-<li><strong>Designed to reduce rework and prevent “great deck, no system” outcomes</strong></li>`,
-        grant_title: "Grant Support (SGX Value Unlock - Equip Grant)",
-        grant_copy:
-          'Eligible SGX-listed companies may apply for the SGX Value Unlock “Equip” Grant (subject to SGX eligibility and approval) <strong>Second Room is a panel service provider for the Equip grant.</strong><br><br>Learn more on the SGX Value Unlock page <a href="https://www.sgx.com/securities/value-unlock?utm_medium=display&amp;utm_source=sgx-web&amp;utm_campaign=ValueUnlock&amp;utm_term=05122025&amp;utm_content=InFocus" target="_blank" rel="noopener" style="text-decoration: underline; font-style: normal !important;">here</a>.',
-        bottom_cta_label: "Register Interest",
-        bottom_cta_href: "register.html",
-        bottom_cta_copy:
-          "We’ll contact you with next steps and available delivery windows. Please email hello@secondrm.com for enquires.",
-      };
+      function setLoading(on) {
+        document.body.classList.toggle("is-loading", !!on);
+      }
 
       const BINDINGS = {
         hero_topline: { selectors: ["#heroTopline"], mode: "text" },
@@ -501,8 +465,9 @@
       }
 
       function applyContent(data) {
-        const merged = { ...DEFAULT_CONTENT, ...(data || {}) };
+        const merged = data || {};
         Object.entries(BINDINGS).forEach(([key, cfg]) => {
+          if (!(key in merged)) return; // keep existing HTML defaults if Firestore has no override
           const val = merged[key];
           cfg.selectors.forEach((sel) => {
             const el = document.querySelector(sel);
@@ -516,6 +481,7 @@
       async function loadContent() {
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+        setLoading(true);
         try {
           setStatus("Loading page content…");
           const snap = await getDoc(doc(db, "page_content", "corebuildlab"));
@@ -528,6 +494,8 @@
           console.warn("Unable to load dynamic content; using defaults.", err);
           setStatus("Using defaults (Firestore read failed). Check console.");
           applyContent({});
+        } finally {
+          setLoading(false);
         }
       }
 
