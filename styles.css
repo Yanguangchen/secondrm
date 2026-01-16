@@ -112,6 +112,11 @@ a {
   line-height: 1.45;
 }
 
+/* Lists: default to solid filled bullets site-wide (unless explicitly disabled) */
+ul {
+  list-style-type: disc;
+}
+
 /* Full-height layout for contact page */
 .contact-body {
   min-height: 100vh;

@@ -123,6 +123,16 @@
       @keyframes srSpin {
         to { transform: rotate(360deg); }
       }
+
+      /* Keep this section’s body size consistent even if Firestore HTML includes inline sizing */
+      #howIntro,
+      #howList,
+      #howList li {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+      }
+
+      /* (bullets are styled globally in styles.css) */
     </style>
     <link rel="canonical" href="https://secondrm.com/corebuildlab.html" />
   </head>
@@ -222,7 +232,7 @@
           <h2 id="takeawayTitle" class="reveal" style="font-family: 'Playfair Display', Georgia, serif !important; color: var(--accent); font-weight: 400; margin-top: 10px;">What You Will Walk Away With
           </h2>
           <p id="takeawayIntro" class="reveal" style="margin-bottom: 1%; margin-top: 1%;">By the end, you will have working IR assets you can run quarter after quarter:</p>
-          <ul id="takeawayList" style="margin-left: 0 !important; padding-left: 1.25rem;" class="service-list compact-list reveal reveal-delay-1">
+          <ul id="takeawayList" class="service-list compact-list reveal reveal-delay-1">
             <li><strong>IR Mandate &amp; Objectives Note</strong> (Leadership-aligned North Star)</li>
             <li><strong>12‑month IR calendar + targeting list + monthly IR check‑in</strong> (A practical cadence linking disclosure, engagement, and feedback.)</li>
             <li><strong>Equity Story Backbone + Peer Comparison Grid</strong> (A consistent, defensible “how the Street should see you”.)</li>
