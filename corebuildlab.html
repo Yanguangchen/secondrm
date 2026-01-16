@@ -124,15 +124,31 @@
         to { transform: rotate(360deg); }
       }
 
-      /* Keep this section’s body size consistent even if Firestore HTML includes inline sizing */
-      #howIntro,
-      #howList,
-      #howList li {
-        font-size: 1.1rem !important;
-        line-height: 1.6 !important;
+      /* Core Build Lab: align bullet lists to the same left edge (override global .service-list indent) */
+      .build-market .service-list {
+        padding-left: 0 !important;
       }
 
       /* (bullets are styled globally in styles.css) */
+
+      /* Mobile: match list-item font sizing to body paragraph sizing */
+      @media (max-width: 720px) {
+        /* Enforce ONE body size on mobile across this page (prevents 1.1rem inline blocks) */
+        .build-market p,
+        .build-market li,
+        .build-market .lead,
+        .build-market .service-subtitle,
+        .build-market .muted,
+        .build-market #programme-details,
+        .build-market #programme-details p,
+        .build-market #programme-details li,
+        .build-market #programme-details .item-title,
+        .build-market #takeawayIntro,
+        .build-market #takeawayNote {
+          font-size: 1rem !important;
+          line-height: 1.6 !important;
+        }
+      }
     </style>
     <link rel="canonical" href="https://secondrm.com/corebuildlab.html" />
   </head>
@@ -309,7 +325,7 @@
           <h2 id="howTitle" class="reveal" style="font-family: 'Playfair Display', Georgia, serif !important; color: var(--accent); font-weight: 400;">How It’s Conducted
           </h2>
           <p id="howIntro" class="reveal">By the end, you will have working IR assets you can run quarter after quarter:</p>
-          <ul id="howList" style="margin-left: 5% !important;" class="service-list compact-list reveal reveal-delay-1">
+          <ul id="howList" class="service-list compact-list reveal reveal-delay-1">
             <li><strong>Four focused working sessions (2 hours each)</strong></li>
             <li><strong>Each session ends with a usable output and a named owner for next actions</strong></li>
             <li><strong>Designed to reduce rework and prevent “great deck, no system” outcomes</strong></li>

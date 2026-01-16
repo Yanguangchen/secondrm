@@ -114,7 +114,33 @@ a {
 
 /* Lists: default to solid filled bullets site-wide (unless explicitly disabled) */
 ul {
-  list-style-type: disc;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+ol {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Bullets without "leaking": bullet sits in a left gutter, text aligns flush */
+ul > li,
+ol > li {
+  position: relative;
+  padding-left: 0;
+}
+
+ul > li::before {
+  content: "•";
+  position: absolute;
+  left: -1.1rem; /* gutter */
+  top: 0.05em;
+  width: 1.1rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
 }
 
 /* Full-height layout for contact page */
@@ -887,7 +913,7 @@ body {
 }
 .service-list {
   margin: 0;
-  padding-left: 1.2rem;
+  padding-left: 0;
 }
 .service-list li {
   margin-bottom: 20px;
