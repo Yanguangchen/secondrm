@@ -4,7 +4,8 @@ service cloud.firestore {
     function isAdmin() {
       return request.auth != null
              && (request.auth.token.email == "gracechen.info@gmail.com"
-                 || request.auth.token.email == "yanguangchensp@gmail.com");
+                || request.auth.token.email == "yanguangchensp@gmail.com"
+                || request.auth.token.email == "patricia.marie.r.faraon@gmail.com");
     }
 
     // Publicly readable content for marketing pages (e.g., corebuildlab.html).

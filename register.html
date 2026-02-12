@@ -258,7 +258,11 @@
       } catch (e) { /* ignore analytics failures */ }
       const db = getFirestore(app);
       const auth = getAuth(app);
-      const ADMIN_EMAILS = new Set(["gracechen.info@gmail.com","yanguangchensp@gmail.com"]);
+      const ADMIN_EMAILS = new Set([
+        "gracechen.info@gmail.com",
+        "yanguangchensp@gmail.com",
+        "patricia.marie.r.faraon@gmail.com",
+      ]);
 
       const form = document.querySelector(".sr-form");
       const statusEl = document.getElementById("formStatus");
