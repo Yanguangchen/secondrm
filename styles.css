@@ -951,7 +951,8 @@ body {
   margin-left: -65px;
   border-radius: 0 8px 8px 0;
   z-index: 1;
-  min-height: 80px;
+  height: 110px;
+  width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
