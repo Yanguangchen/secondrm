@@ -947,12 +947,12 @@ body {
 }
 .member-tag {
   background: #fff;
-  padding: 14px 20px 14px 80px;
+  padding: 14px 24px 14px 80px;
   margin-left: -65px;
   border-radius: 0 8px 8px 0;
   z-index: 1;
-  height: 110px;
-  width: 280px;
+  height: 120px;
+  width: 340px;
   display: flex;
   flex-direction: column;
   justify-content: center;
