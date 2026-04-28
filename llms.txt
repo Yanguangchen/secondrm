@@ -8,7 +8,7 @@ Important notes:
 - Three complementary offerings: advisory, learning frameworks, and collaborations.
 
 ## Products
-- [Backstage Strategist](https://www.secondrm.com/backstage.html): Bespoke capital‑markets IR advisory (diagnostics, narrative architecture, rehearsal, alignment, confidence).
+- [Strategic Advisory](https://www.secondrm.com/strategicadvisory.html): Bespoke capital‑markets IR advisory (diagnostics, narrative architecture, rehearsal, alignment, confidence).
 - [SR Academy](https://www.secondrm.com/sr-academy.html): The Second Room System™ and practical programmes that scale clarity across teams.
 - [SR Studio](https://www.secondrm.com/sr-studio.html): Curated roundtables, forums, and thought‑leadership content that connect strategy, markets, and meaning.
 
@@ -27,4 +27,3 @@ Sitemap: https://www.secondrm.com/sitemap.xml
 Company: Second Room Pte Ltd (Singapore)
 Contact: grace@secondrm.com | Tel: +65‑8065‑4655
 Last-Updated: 2025-11-01
-
