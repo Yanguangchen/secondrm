@@ -12,9 +12,12 @@ Important notes:
 - [SR Academy](https://www.secondrm.com/sr-academy.html): The Second Room System™ and practical programmes that scale clarity across teams.
 - [SR Studio](https://www.secondrm.com/sr-studio.html): Curated roundtables, forums, and thought‑leadership content that connect strategy, markets, and meaning.
 
-## Blog Content
+## Programmes
+- [Core Build Lab](https://www.secondrm.com/corebuildlab.html): Build a Market‑Ready IR Operating System — install the IR cadence institutions expect (mandate, calendar, disclosure rigor, and messaging that signals seriousness).
+
+## Perspectives
 - [Behind Second Room](https://www.secondrm.com/behind-sr.html): Founder background and perspective; experience leading IR at a major listed real‑asset manager.
-- [Our Offerings](https://www.secondrm.com/our-offerings.html): Overview of the platform’s three pillars and how they work together.
+- [Our Offerings](https://www.secondrm.com/our-offerings.html): Overview of the platform's three pillars and how they work together.
 - [About Second Room](https://www.secondrm.com/about.html): The philosophy and structure behind our trust‑shaping approach.
 
 ## Company
@@ -22,8 +25,12 @@ Important notes:
 - [Contact](https://www.secondrm.com/contact.html): Email, phone, and address for engagements and enquiries.
 - [Work with us](https://www.secondrm.com/our-offerings.html): Explore services; programmes and collaborations tailored to each engagement.
 
+## Technical Documentation
+- [Design Documentation](DESIGN.md): Design conventions, visual language, and UI/UX logic.
+- [Project Context](grepp/context.md): Operational orientation and architectural overview.
+
 Website: https://www.secondrm.com
 Sitemap: https://www.secondrm.com/sitemap.xml
 Company: Second Room Pte Ltd (Singapore)
 Contact: grace@secondrm.com | Tel: +65‑8065‑4655
-Last-Updated: 2025-11-01
+Last-Updated: 2026-04-29

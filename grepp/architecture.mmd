@@ -1,0 +1,75 @@
+%% Second Room — System architecture (C4-ish container view)
+%% Render with any Mermaid renderer (e.g. https://mermaid.live)
+
+flowchart LR
+    %% ======== Actors ========
+    visitor([Public Visitor]):::actor
+    lead([Prospective Client<br/>filling Register form]):::actor
+    admin([Internal Admin<br/>email allow-list]):::actor
+
+    %% ======== Browser-side ========
+    subgraph Browser["Browser"]
+        direction TB
+        pages["Static marketing pages<br/>index / about / our-offerings /<br/>strategicadvisory / sr-academy /<br/>sr-studio / corebuildlab /<br/>behind-sr / contact"]:::page
+        register["register.html<br/>(reCAPTCHA widget)"]:::page
+        adminUI["admin.html<br/>(Firebase Auth client)"]:::page
+        css["styles.css"]:::asset
+        assets["Assets/ &amp; profilePics/<br/>(images, hero video)"]:::asset
+    end
+
+    %% ======== Vercel ========
+    subgraph Vercel["Vercel Edge / Serverless"]
+        direction TB
+        cdn["Static asset CDN<br/>(HTML, CSS, images)"]:::vercel
+        fn["api/form/submit.js<br/>Node serverless function"]:::vercel
+    end
+
+    %% ======== Firebase ========
+    subgraph Firebase["Firebase / Google Cloud"]
+        direction TB
+        auth["Firebase Auth"]:::fb
+        rules["firestore.rules<br/>(admin allow-list)"]:::fb
+        subgraph Firestore["Cloud Firestore"]
+            direction TB
+            cSubs[("form_submissions")]:::col
+            cContent[("page_content")]:::col
+        end
+        cf["Cloud Functions<br/>functions/index.js<br/>(alt. submitFormWithCaptcha)"]:::fb
+    end
+
+    %% ======== External ========
+    recaptcha[["Google reCAPTCHA<br/>siteverify API"]]:::ext
+
+    %% ======== Flows ========
+    visitor -->|HTTPS| cdn
+    cdn --> pages
+    cdn --> css
+    cdn --> assets
+
+    lead -->|opens| register
+    register -->|"POST /api/form/submit<br/>{token, payload}"| fn
+    fn -->|verify token| recaptcha
+    fn -->|"firebase-admin SDK<br/>add() doc"| cSubs
+    fn -.->|bypasses rules<br/>(service account)| rules
+
+    admin -->|sign in| auth
+    auth --> adminUI
+    adminUI -->|"read form_submissions<br/>(client SDK)"| cSubs
+    rules -. enforces .- cSubs
+    rules -. enforces .- cContent
+
+    pages -->|"public read"| cContent
+
+    %% Alternative path retained for Firebase deploy target
+    register -. alt path .-> cf
+    cf -->|verify token| recaptcha
+    cf -->|write| cSubs
+
+    %% ======== Styles ========
+    classDef actor fill:#fff,stroke:#222,stroke-width:1.2px,color:#111;
+    classDef page fill:#eef6ff,stroke:#3b6fb6,color:#0b2447;
+    classDef asset fill:#f6f6f6,stroke:#999,color:#333;
+    classDef vercel fill:#111,stroke:#000,color:#fff;
+    classDef fb fill:#fff3e0,stroke:#e08a1e,color:#5a3b00;
+    classDef col fill:#fffbe6,stroke:#caa61a,color:#4a3a00;
+    classDef ext fill:#eef9ee,stroke:#3a8a3a,color:#1a3a1a;

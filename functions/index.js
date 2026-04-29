@@ -20,15 +20,24 @@ if (!admin.apps.length) {
 /**
  * Cloud Function: submitFormWithCaptcha
  *
- * Verifies Google reCAPTCHA v3 token on the server using the secret,
- * and on success writes the provided payload to Firestore.
+ * Verifies a Google reCAPTCHA token (v2 checkbox in the live UI; v3 score
+ * also tolerated) on the server using the secret, and on success writes the
+ * provided payload to Firestore.
  *
- * Configure your secret securely (do NOT commit it to source control):
- *   - Preferred (Secrets):  firebase functions:secrets:set RECAPTCHA_SECRET
- *     Then access via process.env.RECAPTCHA_SECRET at runtime.
- *   - Legacy config:        firebase functions:config:set recaptcha.secret="YOUR_SECRET"
+ * Configure the secret BEFORE deploying (never commit it):
+ *   1. Preferred — Secret Manager:
+ *        firebase functions:secrets:set RECAPTCHA_SECRET
+ *      The secret must also be bound to each function below via
+ *      `runWith({ secrets: [...] })`, otherwise `process.env.RECAPTCHA_SECRET`
+ *      is undefined at runtime.
+ *   2. Legacy — runtime config:
+ *        firebase functions:config:set recaptcha.secret="YOUR_SECRET"
+ *      Read via `functions.config().recaptcha.secret`. No binding needed,
+ *      but Firebase has deprecated this for v2 functions.
  */
-exports.submitFormWithCaptcha = functions.https.onCall(async (data, context) => {
+exports.submitFormWithCaptcha = functions
+  .runWith({ secrets: ["RECAPTCHA_SECRET"] })
+  .https.onCall(async (data, context) => {
   try {
     const token = data && data.token;
     const payload = data && data.payload;
@@ -92,20 +101,25 @@ exports.submitFormWithCaptcha = functions.https.onCall(async (data, context) => 
  * HTTP variant with explicit CORS for use from plain fetch.
  * Endpoint: https://us-central1-<project>.cloudfunctions.net/submitFormWithCaptchaHttp
  * Body: { token: string, payload: {...} }
+ *
+ * Same secret-binding requirement as the callable above: the secret must be
+ * declared via `runWith({ secrets: [...] })` to appear in `process.env`.
  */
-exports.submitFormWithCaptchaHttp = functions.https.onRequest(async (req, res) => {
-  if (req.method === "OPTIONS") {
-    // Handle CORS preflight
-    cors(req, res, () => {
-      res.set("Access-Control-Allow-Origin", req.headers.origin || "*");
-      res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
-      res.set("Access-Control-Allow-Headers", "Content-Type");
-      res.status(204).send("");
-    });
-    return;
-  }
+exports.submitFormWithCaptchaHttp = functions
+  .runWith({ secrets: ["RECAPTCHA_SECRET"] })
+  .https.onRequest(async (req, res) => {
+  // Delegate ALL CORS handling (including OPTIONS preflight) to the `cors`
+  // middleware initialised at the top of this file with an explicit origin
+  // allow-list. Do NOT re-set `Access-Control-Allow-Origin` manually below —
+  // doing so previously echoed any caller's Origin and silently bypassed the
+  // allow-list.
   return cors(req, res, async () => {
     try {
+      if (req.method === "OPTIONS") {
+        // cors() already wrote the appropriate CORS headers (or refused).
+        res.status(204).send("");
+        return;
+      }
       if (req.method !== "POST") {
         res.status(405).json({ error: "Method Not Allowed" });
         return;
@@ -120,7 +134,7 @@ exports.submitFormWithCaptchaHttp = functions.https.onRequest(async (req, res) =
         return;
       }
       const secret =
-        (functions .config().recaptcha && functions .config().recaptcha.secret) ||
+        (functions.config().recaptcha && functions.config().recaptcha.secret) ||
         process.env.RECAPTCHA_SECRET;
       if (!secret) {
         res.status(500).json({ error: "reCAPTCHA secret not configured" });
@@ -145,17 +159,18 @@ exports.submitFormWithCaptchaHttp = functions.https.onRequest(async (req, res) =
         submittedAt: admin.firestore.FieldValue.serverTimestamp(),
       };
       await db.collection("form_submissions").add(toWrite);
-      res.set("Access-Control-Allow-Origin", req.headers.origin || "*");
       res.status(200).json({ ok: true });
     } catch (e) {
       console.error("submitFormWithCaptchaHttp error:", e);
-      res.set("Access-Control-Allow-Origin", req.headers.origin || "*");
       res.status(500).json({ error: "Internal error" });
     }
   });
 });
 
-// Alias without the word "captcha" in the URL to avoid aggressive ad‑block filters.
+// URL alias: identical handler, exported under a name that does NOT contain
+// the substring "captcha" so that aggressive ad-block / privacy filters do
+// not block the request. The captcha verification still runs — the alias
+// changes only the URL, not the logic.
 exports.formSubmit = exports.submitFormWithCaptchaHttp;
 
 

@@ -1,6 +1,12 @@
-// Vercel Serverless Function (Node.js) to verify reCAPTCHA v3 and write to Firestore.
+// Vercel Serverless Function (Node.js) — verifies a Google reCAPTCHA token
+// and writes the form payload to Firestore.
+//
+// The live UI (register.html) uses the reCAPTCHA v2 checkbox. This handler is
+// permissive about v2 vs v3: it requires `success: true` from siteverify, and
+// only enforces `score >= 0.5` if Google returns a score (i.e. v3).
+//
 // Requires environment variables (set in Vercel project settings):
-// - RECAPTCHA_SECRET: your reCAPTCHA v3 secret (server key)
+// - RECAPTCHA_SECRET: server-side reCAPTCHA secret matching the site key in register.html
 // - FIREBASE_SERVICE_ACCOUNT: JSON string of a Firebase service account with Firestore access
 
 const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));

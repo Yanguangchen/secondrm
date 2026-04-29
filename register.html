@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -8,10 +8,18 @@
     <link rel="apple-touch-icon" href="Assets/icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Register Interest — Second Room" />
-    <meta name="description" content="Register your interest for the Market‑Ready IR Operating System programme." />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://www.secondrm.com/Assets/og-image.jpg" />
+    <meta
+      name="description"
+      content="Register your interest for the Market‑Ready IR Operating System programme."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Register Interest — Second Room" />
-    <meta name="twitter:description" content="Register your interest for the Market‑Ready IR Operating System programme." />
+    <meta name="twitter:image" content="https://www.secondrm.com/Assets/og-image.jpg" />
+    <meta
+      name="twitter:description"
+      content="Register your interest for the Market‑Ready IR Operating System programme."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +27,56 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="canonical" href="https://secondrm.com/register.html" />
+    <link rel="canonical" href="https://www.secondrm.com/register.html" />
+    <meta name="keywords" content="Second Room, Second Room Pte Ltd, Grace Chen, investor relations advisory, IR advisory Singapore, capital markets advisory, capital markets communications, IPO readiness, pre-IPO storytelling, post-listing investor engagement, SGX listed company IR, SGX Value Unlock, Equip Grant, investor narrative, equity story, disclosure discipline, earnings readiness, analyst engagement, investor targeting, market feedback, AI interpretability, corporate communications, strategic communications, crisis communications, thought leadership, executive roundtables, investor forums, SR Academy, SR Studio, Strategic Advisory, Core Build Lab, Institutional-Grade IR, Market-Ready IR Operating System" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://www.secondrm.com/register.html#webpage",
+            "url": "https://www.secondrm.com/register.html",
+            "name": "Register Interest — Second Room",
+            "description": "Register your interest for the Market-Ready IR Operating System programme.",
+            "isPartOf": {
+              "@id": "https://www.secondrm.com/#website"
+            },
+            "mainEntity": {
+              "@id": "https://www.secondrm.com/corebuildlab.html#course"
+            },
+            "potentialAction": {
+              "@type": "RegisterAction",
+              "target": "https://www.secondrm.com/register.html"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.secondrm.com/register.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.secondrm.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "SR Academy",
+                "item": "https://www.secondrm.com/sr-academy.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Register Interest",
+                "item": "https://www.secondrm.com/register.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
     <!-- Google reCAPTCHA v2 (checkbox) -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
@@ -41,7 +98,9 @@
         font-weight: 600;
         margin-bottom: 6px;
       }
-      input, textarea, select {
+      input,
+      textarea,
+      select {
         width: 100%;
         border: 1px solid #e3e3e3;
         border-radius: 10px;
@@ -69,9 +128,19 @@
         margin-top: 8px;
         justify-items: start; /* keep the checkbox+label pairs left-aligned */
       }
-      .checks label { font-weight: 500; display: inline-flex; align-items: center; gap: 8px; flex-direction: row; text-align: left; }
+      .checks label {
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-direction: row;
+        text-align: left;
+      }
       /* Ensure checkbox inputs don't fill the whole row like text inputs */
-      .sr-form input[type="checkbox"] { width: auto; height: auto; }
+      .sr-form input[type="checkbox"] {
+        width: auto;
+        height: auto;
+      }
       .submit-row {
         margin-top: 16px;
       }
@@ -112,10 +181,16 @@
     <main>
       <section class="section">
         <div class="container form-wrap">
-          <p class="service-subtitle" style="color: var(--accent);">Register Your Interest</p>
+          <p class="service-subtitle" style="color: var(--accent)">
+            Register Your Interest
+          </p>
 
-          <h1 class="service-title" style="margin-bottom: 6px;">Institutional-Grade Investor Relations: Core Build Lab </h1>
-          <p class="service-subtitle">We’ll contact you with next steps and available delivery windows.</p>
+          <h1 class="service-title" style="margin-bottom: 6px">
+            Institutional-Grade Investor Relations: Core Build Lab 
+          </h1>
+          <p class="service-subtitle">
+            We’ll contact you with next steps and available delivery windows.
+          </p>
 
           <form class="sr-form" action="#" method="post" novalidate>
             <div class="full">
@@ -125,7 +200,13 @@
             </div>
             <div>
               <label for="ticker">SGX ticker / code *</label>
-              <input id="ticker" name="ticker" type="text" required pattern="[A-Za-z0-9.\\-]{1,10}" />
+              <input
+                id="ticker"
+                name="ticker"
+                type="text"
+                required
+                pattern="[A-Za-z0-9.\\-]{1,10}"
+              />
               <div id="err-ticker" class="error"></div>
             </div>
             <div>
@@ -140,12 +221,25 @@
             </div>
             <div>
               <label for="email">Email *</label>
-              <input id="email" name="email" type="email" inputmode="email" required />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                inputmode="email"
+                required
+              />
               <div id="err-email" class="error"></div>
             </div>
             <div>
               <label for="mobile">Mobile *</label>
-              <input id="mobile" name="mobile" type="tel" inputmode="tel" required pattern="[0-9()+\\-\\s]{7,}" />
+              <input
+                id="mobile"
+                name="mobile"
+                type="tel"
+                inputmode="tel"
+                required
+                pattern="[0-9()+\\-\\s]{7,}"
+              />
               <div id="err-mobile" class="error"></div>
             </div>
             <div class="full">
@@ -156,41 +250,82 @@
 
             <div class="full">
               <div class="checks">
-                <label><input type="checkbox" name="attendance" value="yes" /> CEO/CFO can attend most sessions</label>
-                <label><input type="checkbox" name="contactConsent" value="yes" /> Consent to be contacted</label>
+                <label
+                  ><input type="checkbox" name="attendance" value="yes" />
+                  CEO/CFO can attend most sessions</label
+                >
+                <label
+                  ><input type="checkbox" name="contactConsent" value="yes" />
+                  Consent to be contacted</label
+                >
               </div>
             </div>
 
             <div class="full">
               <p class="smallprint">
-                By submitting this form, you agree that your personal data may be collected, used, and disclosed by Second Room Pte Ltd (“Second Room”) and its authorised partners, in accordance with applicable data protection laws and regulations.
+                By submitting this form, you agree that your personal data may
+                be collected, used, and disclosed by Second Room Pte Ltd
+                (“Second Room”) and its authorised partners, in accordance with
+                applicable data protection laws and regulations.
                 <br /><br />
                 Your information will be used to:
-                <br />• Review and manage your interest in the programme
-                <br />• Deliver and improve Second Room’s services
-                <br />• Conduct market research and internal analysis
-                <br /><br />
-                We will not share your data with unrelated third parties without your consent.
+                <br />• Review and manage your interest in the programme <br />•
+                Deliver and improve Second Room’s services <br />• Conduct
+                market research and internal analysis <br /><br />
+                We will not share your data with unrelated third parties without
+                your consent.
               </p>
-              <label style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; flex-direction: row;">
+              <label
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 8px;
+                  margin-top: 10px;
+                  flex-direction: row;
+                "
+              >
                 <input type="checkbox" name="pdpaConsent" required />
-                <span style="font-weight: 400; font-size: 0.9rem; line-height: 1;">I consent to the collection, use, and disclosure of my personal data by Second Room for the purposes set out in this form.</span>
+                <span
+                  style="font-weight: 400; font-size: 0.9rem; line-height: 1"
+                  >I consent to the collection, use, and disclosure of my
+                  personal data by Second Room for the purposes set out in this
+                  form.</span
+                >
               </label>
               <div id="ftr-consent" class="error"></div>
             </div>
 
-            <div class="full" style="margin: 8px 0 6px 0;">
+            <div class="full" style="margin: 8px 0 6px 0">
               <!-- reCAPTCHA v2 Checkbox -->
-              <div class="g-recaptcha" data-sitekey="6Leuji4sAAAAAHc4BiPz8SOy8wBJ9IKoP-Knycp-"></div>
-              <div class="smallprint" style="margin-top:6px;color:#666;">Protected by reCAPTCHA</div>
+              <div
+                class="g-recaptcha"
+                data-sitekey="6Leuji4sAAAAAHc4BiPz8SOy8wBJ9IKoP-Knycp-"
+              ></div>
+              <div class="smallprint" style="margin-top: 6px; color: #666">
+                Protected by reCAPTCHA
+              </div>
             </div>
 
             <div class="full submit-row">
-              <button type="submit" class="button" style="border: 2px solid #000; color: #000; text-decoration: underline; padding: 14px 34px; font-weight: 700;">
+              <button
+                type="submit"
+                class="button"
+                style="
+                  border: 2px solid #000;
+                  color: #000;
+                  text-decoration: underline;
+                  padding: 14px 34px;
+                  font-weight: 700;
+                "
+              >
                 Submit Interest
               </button>
             </div>
-            <div id="formStatus" class="smallprint" style="margin-top: 10px;"></div>
+            <div
+              id="formStatus"
+              class="smallprint"
+              style="margin-top: 10px"
+            ></div>
           </form>
         </div>
       </section>
@@ -199,7 +334,7 @@
     <footer>
       <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
     </footer>
-  <!-- <div class="container" style="text-align: right; margin-top: 8px; margin-bottom: 0;">
+    <!-- <div class="container" style="text-align: right; margin-top: 8px; margin-bottom: 0;">
     <button id="adminSignInBtn" class="button" style="border: 1.5px solid #000; color: #000;">
       Admin sign in
     </button>
@@ -235,9 +370,17 @@
     </script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-      import { getAnalytics, isSupported as isAnalyticsSupported } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+      import {
+        getAnalytics,
+        isSupported as isAnalyticsSupported,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-      import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
       import { getFunctions } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-functions.js";
 
       const firebaseConfig = {
@@ -247,7 +390,7 @@
         storageBucket: "secondrm.firebasestorage.app",
         messagingSenderId: "468878187246",
         appId: "1:468878187246:web:3e3f336bfcaaadd71131ff",
-        measurementId: "G-908P86VVVR"
+        measurementId: "G-908P86VVVR",
       };
 
       const app = initializeApp(firebaseConfig);
@@ -255,7 +398,9 @@
         if (await isAnalyticsSupported()) {
           getAnalytics(app);
         }
-      } catch (e) { /* ignore analytics failures */ }
+      } catch (e) {
+        /* ignore analytics failures */
+      }
       const db = getFirestore(app);
       const auth = getAuth(app);
       const ADMIN_EMAILS = new Set([
@@ -274,7 +419,7 @@
         email: document.getElementById("err-email"),
         mobile: document.getElementById("err-mobile"),
         office: document.getElementById("err-office"),
-        pdpa: document.getElementById("ftr-consent")
+        pdpa: document.getElementById("ftr-consent"),
       };
 
       function setError(input, el, msg) {
@@ -300,35 +445,99 @@
           role: "Please enter a role/title.",
           email: "Please enter a valid email address.",
           mobile: "Please enter a valid mobile number.",
-          office: "Please enter office location."
-        }).forEach(([k]) => setError(document.getElementById(k), err[k === "pdpa" ? "pdpa" : k], ""));
+          office: "Please enter office location.",
+        }).forEach(([k]) =>
+          setError(
+            document.getElementById(k),
+            err[k === "pdpa" ? "pdpa" : k],
+            "",
+          ),
+        );
 
         let ok = true;
         const company = val("company");
-        if (!company) { setError(document.getElementById("company"), err.company, "Please enter your company name."); ok = false; }
+        if (!company) {
+          setError(
+            document.getElementById("company"),
+            err.company,
+            "Please enter your company name.",
+          );
+          ok = false;
+        }
 
         const ticker = val("ticker");
-        if (!ticker) { setError(document.getElementById("ticker"), err.ticker, "Please enter SGX ticker/code."); ok = false; }
-        else if (!/^[A-Za-z0-9.\-]{1,10}$/.test(ticker)) { setError(document.getElementById("ticker"), err.ticker, "Use 1–10 chars: A–Z, 0–9, . or -"); ok = false; }
+        if (!ticker) {
+          setError(
+            document.getElementById("ticker"),
+            err.ticker,
+            "Please enter SGX ticker/code.",
+          );
+          ok = false;
+        } else if (!/^[A-Za-z0-9.\-]{1,10}$/.test(ticker)) {
+          setError(
+            document.getElementById("ticker"),
+            err.ticker,
+            "Use 1–10 chars: A–Z, 0–9, . or -",
+          );
+          ok = false;
+        }
 
         const contactName = val("contactName");
-        if (!contactName) { setError(document.getElementById("contactName"), err.contactName, "Please enter a contact name."); ok = false; }
+        if (!contactName) {
+          setError(
+            document.getElementById("contactName"),
+            err.contactName,
+            "Please enter a contact name.",
+          );
+          ok = false;
+        }
 
         const role = val("role");
-        if (!role) { setError(document.getElementById("role"), err.role, "Please enter a role/title."); ok = false; }
+        if (!role) {
+          setError(
+            document.getElementById("role"),
+            err.role,
+            "Please enter a role/title.",
+          );
+          ok = false;
+        }
 
         const email = val("email");
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setError(document.getElementById("email"), err.email, "Please enter a valid email address."); ok = false; }
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+          setError(
+            document.getElementById("email"),
+            err.email,
+            "Please enter a valid email address.",
+          );
+          ok = false;
+        }
 
         const mobileEl = document.getElementById("mobile");
         const mobileVal = mobileEl ? mobileEl.value.trim() : "";
-        if (!/^[0-9()+\-\s]{7,}$/.test(mobileVal)) { setError(mobileEl, err.mobile, "Use digits, +, -, () and at least 7 numbers."); ok = false; }
+        if (!/^[0-9()+\-\s]{7,}$/.test(mobileVal)) {
+          setError(
+            mobileEl,
+            err.mobile,
+            "Use digits, +, -, () and at least 7 numbers.",
+          );
+          ok = false;
+        }
 
         const office = val("office");
-        if (!office) { setError(document.getElementById("office"), err.office, "Please enter office location."); ok = false; }
+        if (!office) {
+          setError(
+            document.getElementById("office"),
+            err.office,
+            "Please enter office location.",
+          );
+          ok = false;
+        }
 
         const pdpa = document.querySelector('input[name="pdpaConsent"]');
-        if (!pdpa || !pdpa.checked) { setError(null, err.pdpa, "You must consent to continue."); ok = false; }
+        if (!pdpa || !pdpa.checked) {
+          setError(null, err.pdpa, "You must consent to continue.");
+          ok = false;
+        }
         return ok;
       }
 
@@ -338,8 +547,11 @@
         statusEl.style.color = "";
         if (!validate()) {
           statusEl.textContent = "Please fix the highlighted fields.";
-          const firstErr = document.querySelector(".has-error") || document.querySelector(".error:not(:empty)");
-          if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+          const firstErr =
+            document.querySelector(".has-error") ||
+            document.querySelector(".error:not(:empty)");
+          if (firstErr)
+            firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
           return;
         }
 
@@ -348,8 +560,10 @@
         btn.textContent = "Submitting…";
         try {
           // Read reCAPTCHA v2 checkbox token from the hidden textarea
-          const tokenEl = document.querySelector('textarea[name="g-recaptcha-response"]');
-          const token = (tokenEl && tokenEl.value ? tokenEl.value.trim() : '');
+          const tokenEl = document.querySelector(
+            'textarea[name="g-recaptcha-response"]',
+          );
+          const token = tokenEl && tokenEl.value ? tokenEl.value.trim() : "";
           if (!token) {
             statusEl.textContent = "Please complete the reCAPTCHA checkbox.";
             statusEl.style.color = "#b00020";
@@ -357,6 +571,9 @@
             btn.textContent = "Submit Interest";
             return;
           }
+          // ANCHOR: form-submission-payload — schema is documented in
+          // grepp/context.md §4. Keep field names, types, and required-ness
+          // in sync there if you change this object.
           const payload = {
             company: val("company"),
             ticker: val("ticker"),
@@ -365,11 +582,15 @@
             email: val("email"),
             mobile: document.getElementById("mobile").value.trim(),
             office: val("office"),
-            attendance: !!document.querySelector('input[name="attendance"]')?.checked,
-            contactConsent: !!document.querySelector('input[name="contactConsent"]')?.checked,
-            pdpaConsent: !!document.querySelector('input[name="pdpaConsent"]')?.checked,
+            attendance: !!document.querySelector('input[name="attendance"]')
+              ?.checked,
+            contactConsent: !!document.querySelector(
+              'input[name="contactConsent"]',
+            )?.checked,
+            pdpaConsent: !!document.querySelector('input[name="pdpaConsent"]')
+              ?.checked,
             userAgent: navigator.userAgent,
-            page: location.href
+            page: location.href,
           };
           // Call HTTP function with explicit CORS headers
           // Call same-origin Vercel serverless route to avoid CORS
@@ -384,14 +605,18 @@
             const info = await resp.text().catch(() => "");
             throw new Error(`Server error (${resp.status}): ${info}`);
           }
-          statusEl.textContent = "Thanks — your interest has been recorded. We’ll be in touch shortly.";
+          statusEl.textContent =
+            "Thanks — your interest has been recorded. We’ll be in touch shortly.";
           statusEl.style.color = "green";
           form.reset();
-          document.querySelectorAll(".has-error").forEach(el => el.classList.remove("has-error"));
-          Object.values(err).forEach(e => e.textContent = "");
+          document
+            .querySelectorAll(".has-error")
+            .forEach((el) => el.classList.remove("has-error"));
+          Object.values(err).forEach((e) => (e.textContent = ""));
         } catch (err_) {
           console.error(err_);
-          statusEl.textContent = "Sorry, something went wrong. Please try again later.";
+          statusEl.textContent =
+            "Sorry, something went wrong. Please try again later.";
           statusEl.style.color = "#b00020";
         } finally {
           btn.disabled = false;
@@ -407,7 +632,8 @@
         signInBtn.addEventListener("click", async () => {
           try {
             const cred = await signInWithGoogle();
-            const email = (cred.user && cred.user.email ? cred.user.email.toLowerCase() : "");
+            const email =
+              cred.user && cred.user.email ? cred.user.email.toLowerCase() : "";
             if (ADMIN_EMAILS.has(email)) {
               window.location.href = "admin.html";
             } else {
@@ -426,6 +652,4 @@
       }
     </script>
   </body>
-  </html>
-
-
+</html>
