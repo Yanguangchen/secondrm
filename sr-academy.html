@@ -26,133 +26,307 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="canonical" href="https://secondrm.com/sr-academy.html" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-grid">
-        <div class="brand">
-          <a href="index.html" class="brand-link" aria-label="Second Room home">
-            <img class="brand-logo" src="Assets/banner.jpg" alt="Second Room" />
-          </a>
-        </div>
-        <button
-          class="menu-toggle"
-          aria-controls="academy-nav"
-          aria-expanded="false"
-          title="Menu"
-        >
-          ☰
-        </button>
-        <nav id="academy-nav" class="nav" aria-label="Primary">
-          <button class="menu-close" aria-label="Close menu">✕</button>
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About</a>
-          <a class="nav-link" href="our-offerings.html">Our Offerings</a>
-          <a class="nav-link" href="behind-sr.html">Behind SR</a>
-          <a class="nav-link" href="contact.html">Contact</a>
-        </nav>
-      </div>
-    </header>
+    <style>
+      body.academy-page {
+        min-height: 100vh;
+        background: #fff;
+      }
 
+      .academy-canvas {
+        padding-top: 54px;
+        padding-bottom: 90px;
+      }
+
+      .academy-brand {
+        margin-bottom: 36px;
+        animation: academyFadeUp 0.55s ease both;
+      }
+
+      .academy-programmes {
+        display: grid;
+        gap: 108px;
+      }
+
+      .academy-programme {
+        display: grid;
+        grid-template-columns: 116px minmax(0, 560px) 260px;
+        column-gap: 24px;
+        align-items: center;
+        animation: academyFadeUp 0.6s ease both;
+      }
+
+      .academy-programme:nth-child(1) {
+        animation-delay: 0.12s;
+      }
+
+      .academy-programme:nth-child(2) {
+        animation-delay: 0.24s;
+      }
+
+      .academy-programme-icon {
+        width: 116px;
+        height: 116px;
+        border-radius: 50%;
+        background: #fff1ee;
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+      }
+
+      .academy-programme-icon img {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        object-fit: cover;
+      }
+
+      .academy-programme-copy {
+        border-left: 3px solid var(--accent);
+        padding-left: 15px;
+      }
+
+      .academy-programme-title {
+        color: #3f3f42;
+        font-size: 1.55rem;
+        font-weight: 700;
+        line-height: 1.08;
+        margin: 0;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      .academy-programme-title a {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+      }
+
+      .academy-programme-kicker {
+        color: var(--accent);
+        font-size: 1.02rem;
+        font-weight: 700;
+        line-height: 1.15;
+        margin: 4px 0 16px;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      .academy-programme-copy p {
+        color: #111;
+        font-size: 1.12rem;
+        line-height: 1.35;
+        margin: 0;
+        text-align: left;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      .academy-actions {
+        display: grid;
+        gap: 20px;
+      }
+
+      .academy-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        border: 4px solid var(--accent);
+        border-radius: 999px;
+        color: var(--accent);
+        font-size: 0.86rem;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        background: #fff;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease,
+          box-shadow 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .academy-button:hover,
+      .academy-button:focus-visible {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 8px 18px rgba(220, 95, 69, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .academy-button:focus-visible {
+        outline: 2px solid #111;
+        outline-offset: 4px;
+      }
+
+      @keyframes academyFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .academy-brand,
+        .academy-programme {
+          animation: none;
+        }
+
+        .academy-button {
+          transition: none;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .academy-canvas {
+          padding-top: 40px;
+          padding-bottom: 64px;
+        }
+
+        .academy-brand {
+          margin-bottom: 30px;
+        }
+
+        .academy-programme-icon {
+          width: 86px;
+          height: 86px;
+        }
+
+        .academy-programmes {
+          gap: 64px;
+        }
+
+        .academy-programme {
+          grid-template-columns: 86px minmax(0, 1fr);
+          gap: 18px;
+          align-items: start;
+        }
+
+        .academy-actions {
+          grid-column: 2;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .academy-canvas {
+          padding-top: 34px;
+        }
+
+        .academy-programme {
+          grid-template-columns: 1fr;
+        }
+
+        .academy-programme-icon {
+          width: 92px;
+          height: 92px;
+        }
+
+        .academy-programme-copy {
+          border-left-width: 2px;
+        }
+
+        .academy-programme-title {
+          font-size: 1.35rem;
+        }
+
+        .academy-programme-copy p {
+          font-size: 1rem;
+          text-align: left;
+        }
+
+        .academy-actions {
+          grid-column: auto;
+          grid-template-columns: 1fr;
+          max-width: 260px;
+        }
+      }
+    </style>
+  </head>
+  <body class="academy-page">
     <main>
-      <section class="section service-detail">
+      <section class="section service-detail academy-canvas">
         <div class="container">
-          <div class="service-hero">
+          <div class="service-hero academy-brand" aria-labelledby="academy-title">
             <img
               class="service-icon"
               src="Assets/offering2.jpg"
               alt="SR Academy"
             />
             <div>
-              <h2 class="service-title">SR Academy</h2>
+              <h2 id="academy-title" class="service-title">SR Academy</h2>
               <div class="service-subtitle">Learning &amp; Frameworks</div>
             </div>
           </div>
 
-          <h3 class="service-kicker">
-            Current programmes
-          </h3>
+          <section aria-labelledby="current-programmes">
+            <h3 id="current-programmes" class="service-kicker">
+              Current Programmes
+            </h3>
 
-          <ul class="service-list">
-            <li>
-              <strong>Institutional-Grade IR — Core Build Lab</strong>
-              A practical build to install your investor relations Operating
-              System: mandate, disclosure discipline, engagement cadence, and
-              investor-ready messaging—so your company shows up like an
-              institutionally investable name.
-              <a href="corebuildlab.html">Register your interest here.</a>
-              <br />
+            <div class="academy-programmes">
+              <article class="academy-programme">
+                <div class="academy-programme-icon" aria-hidden="true">
+                  <img src="Assets/sracademyicon1.png" alt="" />
+                </div>
+                <div class="academy-programme-copy">
+                  <h3 class="academy-programme-title">
+                    Institutional Grade IR: Core Build Lab
+                  </h3>
+                  <div class="academy-programme-kicker">
+                    An SGX Value Unlock - Equip Programme
+                  </div>
+                  <p>
+                    A 4-session in-company build to clarify capital logic, align
+                    investor positioning, strengthen disclosure discipline, and
+                    build a repeatable
+                    institutional-grade IR operating system.
+                  </p>
+                </div>
+                <div class="academy-actions">
+                  <a class="academy-button" href="https://www.secondrm.com/corebuildlab.html">Learn More</a>
+                  <a class="academy-button" href="register.html">Register Now!</a>
+                </div>
+              </article>
 
-            </li>
-            <li>
-              <strong>The IRO's Foundation</strong><i> (Launching soon)</i> —
-              build a structured understanding of investor <br />
-              behaviour, valuation dynamics, targeting strategy, and engagement
-              <br />
-              rhythm.
-            </li>
-          </ul>
-          <h3 class="service-kicker">Available on demand</h3>
-          <ul class="service-list">
-            <li>
-              <strong>Control the First Frame™</strong> — learn to frame
-              strategy and numbers in high- <br />stakes conversations to shape
-              market perception
-            </li>
-            <li>
-              <strong>Rehearse the Question You Hope Never Comes™ </strong> —
-              develop Q&A <br />discipline and leadership composure under
-              pressure. behaviour, valuation dynamics, targeting strate
-            </li>
-            <li>
-              <strong>Custom executive workshops</strong> in areas of investor
-              relations, leadership <br />
-              stakes conversations to shape market perception. communication and
-              market engagement.
-            </li>
-          </ul>
+              <article class="academy-programme">
+                <div class="academy-programme-icon" aria-hidden="true">
+                  <img src="Assets/sracademyicon2.png" alt="" />
+                </div>
+                <div class="academy-programme-copy">
+                  <h3 class="academy-programme-title">
+                    The Strategic IR Foundation: A Practical Framework to Start Right
+                  </h3>
+                  <div class="academy-programme-kicker">
+                    In collaboration with SGlistcos
+                  </div>
+                  <p>
+                    Designed for today’s market, where investor engagement often
+                    sits across management, this half-day workshop provides a
+                    practical framework for understanding investor behaviour,
+                    valuation dynamics, targeting strategy and engagement rhythm,
+                    while positioning IR as a strategic partner to management.
+                  </p>
+                </div>
+                <div class="academy-actions">
+                  <a class="academy-button" href="https://sglistcos.com/value-unlock">Learn More</a>
+                  <a class="academy-button" href="https://qualtricsxmmb4x47vbq.qualtrics.com/jfe/form/SV_cCq5rPlV2vMPgjQ">Register Now!</a>
+                </div>
+              </article>
+            </div>
+          </section>
         </div>
       </section>
     </main>
-
-    <footer>
-      <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
-    </footer>
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-      (function () {
-        const btn = document.querySelector(".menu-toggle");
-        const nav = document.getElementById("academy-nav");
-        if (btn && nav) {
-          const toggle = () => {
-            const open = nav.classList.toggle("is-open");
-            btn.setAttribute("aria-expanded", String(open));
-            document.body.classList.toggle("no-scroll", open);
-          };
-          btn.addEventListener("click", toggle);
-          const closeBtn = nav.querySelector(".menu-close");
-          if (closeBtn)
-            closeBtn.addEventListener("click", () => {
-              nav.classList.remove("is-open");
-              btn.setAttribute("aria-expanded", "false");
-              document.body.classList.remove("no-scroll");
-            });
-          nav.addEventListener("click", (e) => {
-            if (e.target.closest("a")) {
-              nav.classList.remove("is-open");
-              btn.setAttribute("aria-expanded", "false");
-              document.body.classList.remove("no-scroll");
-            }
-          });
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-              nav.classList.remove("is-open");
-              btn.setAttribute("aria-expanded", "false");
-              document.body.classList.remove("no-scroll");
-            }
-          });
-        }
-      })();
-    </script>
   </body>
 </html>

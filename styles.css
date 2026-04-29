@@ -198,6 +198,9 @@ h3 {
     Roboto, Helvetica, Arial !important;
   line-height: 1.15;
   margin: 0 0 0.5rem;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
 }
 
 h1 {
@@ -729,6 +732,9 @@ body {
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
 }
 .off-title a,
 .off-media a {
@@ -1118,7 +1124,16 @@ body {
 .service-detail li {
   overflow-wrap: break-word;
   word-break: normal;
-  hyphens: auto;
+  hyphens: manual;
+}
+
+.service-detail h1,
+.service-detail h2,
+.service-detail h3,
+.service-detail .service-title,
+.service-detail .service-kicker {
+  overflow-wrap: normal;
+  hyphens: manual;
 }
 
 /* Better readability for dense lists/paragraphs */
