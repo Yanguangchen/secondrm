@@ -1,0 +1,43 @@
+# Files in this list are committed to git but NOT deployed to Vercel,
+# so they will not be reachable at https://www.secondrm.com/<path>.
+#
+# Keep this list aligned with anything that is "internal documentation"
+# or "backend config" — i.e. useful in the repo but should not be served
+# as a static asset on the public site.
+
+# --- Internal documentation ---
+README.md
+DESIGN.md
+LICENSE
+grepp/
+
+# --- Env templates (no secrets, but still internal) ---
+.env.example
+
+# --- Firebase backend config (deployed via `firebase deploy`, not Vercel) ---
+firebase.json
+firestore.rules
+functions/
+
+# --- Build / package metadata ---
+# NOTE: package.json must remain available to Vercel at build time so it can
+# install `firebase-admin` and `node-fetch` for api/form/submit.js. It will be
+# served at /package.json by the static handler. That only leaks declared
+# dependency versions, which are also visible in the deployed function bundle,
+# so we accept that exposure rather than break the build.
+# (Intentionally NOT excluded: package.json, package-lock.json)
+
+# --- TLS / signing material ---
+# Belt-and-braces: also blocked by .gitignore from being added in future,
+# but if any *.pfx / *.pem / *.key is currently tracked it must not ship.
+*.pfx
+*.pem
+*.key
+*.p12
+*.crt
+serviceAccount*.json
+firebase-adminsdk*.json
+
+# --- Editor / agent scratch ---
+.claude/
+.cursor/
