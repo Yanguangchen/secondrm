@@ -28,157 +28,199 @@
 
     <meta name="twitter:description" content="Second Room is a Singapore-based capital-markets advisory helping leaders shape strategy, narrative, and investor trust across pre-IPO, listing, and post-listing moments." />
     <meta name="twitter:image" content="https://www.secondrm.com/Assets/og-image.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link defer rel="stylesheet" href="styles.css" />
+    <link rel="preload" href="fonts/GlacialIndifference-Regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" as="image" href="Assets/hero-image.jpg" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="canonical" href="https://www.secondrm.com/" />
-    <meta name="keywords" content="Second Room, Second Room Pte Ltd, Grace Chen, investor relations advisory, IR advisory Singapore, capital markets advisory, capital markets communications, IPO readiness, pre-IPO storytelling, post-listing investor engagement, SGX listed company IR, SGX Value Unlock, Equip Grant, investor narrative, equity story, disclosure discipline, earnings readiness, analyst engagement, investor targeting, market feedback, AI interpretability, corporate communications, strategic communications, crisis communications, thought leadership, executive roundtables, investor forums, SR Academy, SR Studio, Strategic Advisory, Core Build Lab, Institutional-Grade IR, Market-Ready IR Operating System" />
+    <meta property="og:url" content="https://www.secondrm.com/" />
+    <meta property="og:site_name" content="Second Room" />
+    <meta property="og:locale" content="en_SG" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://www.secondrm.com/#organization",
-            "name": "Second Room",
-            "legalName": "Second Room Pte Ltd",
-            "slogan": "Where Trust Shapes Capital",
-            "url": "https://www.secondrm.com/",
-            "logo": "https://www.secondrm.com/Assets/icon.png",
-            "image": "https://www.secondrm.com/Assets/og-image.jpg",
-            "description": "Second Room partners with leaders to prepare for capital-raising moments, from pre-IPO storytelling to post-listing investor engagement.",
-            "founder": {
-              "@type": "Person",
-              "@id": "https://www.secondrm.com/#grace-chen",
-              "name": "Grace Chen",
-              "jobTitle": "Founder & Principal",
-              "sameAs": "https://linkedin.com/in/grace-chen-a678b535",
-              "worksFor": {
-                "@id": "https://www.secondrm.com/#organization"
-              },
-              "description": "Founder & Principal of Second Room, a strategist with nearly two decades of experience in investor relations and capital-markets communication."
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "176 Orchard Road, The Centrepoint, #05-05",
-              "addressLocality": "Singapore",
-              "postalCode": "238843",
-              "addressCountry": "SG"
-            },
-            "areaServed": [
-              "Singapore",
-              "Asia"
-            ],
-            "telephone": "+65-9759-3233",
-            "email": "hello@secondrm.com",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "Business enquiries",
-              "email": "hello@secondrm.com",
-              "telephone": "+65-9759-3233",
-              "areaServed": "SG",
-              "availableLanguage": [
-                "en"
-              ]
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Second Room services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@id": "https://www.secondrm.com/strategicadvisory.html#service"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@id": "https://www.secondrm.com/sr-academy.html#service"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@id": "https://www.secondrm.com/sr-studio.html#service"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://www.secondrm.com/#website",
-            "url": "https://www.secondrm.com/",
-            "name": "Second Room",
-            "publisher": {
-              "@id": "https://www.secondrm.com/#organization"
-            }
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://www.secondrm.com/#webpage",
-            "url": "https://www.secondrm.com/",
-            "name": "Second Room — Where Trust Shapes Capital",
-            "description": "Second Room partners with leaders to prepare for capital-raising moments, from pre-IPO storytelling to post-listing investor engagement.",
-            "isPartOf": {
-              "@id": "https://www.secondrm.com/#website"
-            },
-            "about": {
-              "@id": "https://www.secondrm.com/#organization"
-            },
-            "primaryImageOfPage": {
-              "@type": "ImageObject",
-              "url": "https://www.secondrm.com/Assets/hero-image.jpg"
-            }
-          },
-          {
-            "@type": "Service",
-            "@id": "https://www.secondrm.com/strategicadvisory.html#service",
-            "name": "Strategic Advisory",
-            "serviceType": "Capital Markets IR Advisory",
-            "provider": {
-              "@id": "https://www.secondrm.com/#organization"
-            },
-            "areaServed": "Singapore",
-            "url": "https://www.secondrm.com/strategicadvisory.html"
-          },
-          {
-            "@type": "Service",
-            "@id": "https://www.secondrm.com/sr-academy.html#service",
-            "name": "SR Academy",
-            "serviceType": "Learning & Frameworks",
-            "provider": {
-              "@id": "https://www.secondrm.com/#organization"
-            },
-            "areaServed": "Singapore",
-            "url": "https://www.secondrm.com/sr-academy.html"
-          },
-          {
-            "@type": "Service",
-            "@id": "https://www.secondrm.com/sr-studio.html#service",
-            "name": "SR Studio",
-            "serviceType": "Thought Leadership & Collaborations",
-            "provider": {
-              "@id": "https://www.secondrm.com/#organization"
-            },
-            "areaServed": "Singapore",
-            "url": "https://www.secondrm.com/sr-studio.html"
-          }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.secondrm.com/#organization",
+      "name": "Second Room",
+      "legalName": "Second Room Pte Ltd",
+      "slogan": "Where Trust Shapes Capital",
+      "url": "https://www.secondrm.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.secondrm.com/Assets/icon.png",
+        "width": 1080,
+        "height": 1080
+      },
+      "image": "https://www.secondrm.com/Assets/og-image.jpg",
+      "description": "Second Room partners with leaders to prepare for capital-raising moments, from pre-IPO storytelling to post-listing investor engagement.",
+      "email": "hello@secondrm.com",
+      "telephone": "+65-9759-3233",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "176 Orchard Road, The Centrepoint, #05-05",
+        "addressLocality": "Singapore",
+        "postalCode": "238843",
+        "addressCountry": "SG"
+      },
+      "areaServed": [
+        "Singapore",
+        "Asia"
+      ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://www.secondrm.com/#grace-chen",
+        "name": "Grace Chen",
+        "jobTitle": "Founder & Principal",
+        "url": "https://www.secondrm.com/behind-sr.html",
+        "sameAs": "https://linkedin.com/in/grace-chen-a678b535",
+        "worksFor": {
+          "@id": "https://www.secondrm.com/#organization"
+        }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Business enquiries",
+        "email": "hello@secondrm.com",
+        "telephone": "+65-9759-3233",
+        "areaServed": "SG",
+        "availableLanguage": [
+          "en"
         ]
+      },
+      "knowsAbout": [
+        "Investor relations",
+        "Capital markets communications",
+        "IPO readiness",
+        "Disclosure discipline",
+        "Investor engagement"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.secondrm.com/#website",
+      "url": "https://www.secondrm.com/",
+      "name": "Second Room",
+      "description": "Capital-markets advisory for leaders preparing for pre-IPO, listing, and post-listing investor engagement.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.secondrm.com/#organization"
       }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.secondrm.com/#webpage",
+      "url": "https://www.secondrm.com/",
+      "name": "Second Room — Where Trust Shapes Capital",
+      "description": "Second Room is a Singapore-based capital-markets advisory helping leaders shape strategy, narrative, and investor trust across pre-IPO, listing, and post-listing moments.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.secondrm.com/#website"
+      },
+      "about": {
+        "@id": "https://www.secondrm.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.secondrm.com/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.secondrm.com/Assets/hero-image.jpg",
+        "width": 541,
+        "height": 533
+      },
+      "mainEntity": {
+        "@id": "https://www.secondrm.com/#offerings"
+      },
+      "dateModified": "2026-10-08"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.secondrm.com/#offerings",
+      "name": "Second Room offerings",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Strategic Advisory",
+          "url": "https://www.secondrm.com/strategicadvisory.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SR Academy",
+          "url": "https://www.secondrm.com/sr-academy.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SR Studio",
+          "url": "https://www.secondrm.com/sr-studio.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Core Build Lab",
+          "url": "https://www.secondrm.com/corebuildlab.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.secondrm.com/#faq",
+      "url": "https://www.secondrm.com/",
+      "isPartOf": {
+        "@id": "https://www.secondrm.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Second Room do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Second Room is a Singapore capital-markets advisory. It helps leadership teams clarify strategy, frame conviction, and build the investor trust that supports how a business is understood, followed, and valued, from pre-IPO storytelling through listing and post-listing engagement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Second Room for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Boards, founders, and listed-company leadership teams preparing for high-stakes investor communication, including SGX-listed companies building an institutional-grade investor relations operating system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can you engage Second Room for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three complementary practices: Strategic Advisory for capital-markets IR counsel, SR Academy for programmes such as Core Build Lab, and SR Studio for roundtables, forums, and thought leadership."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Second Room based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Second Room Pte Ltd is based at 176 Orchard Road, The Centrepoint, #05-05, Singapore 238843. Enquiries: hello@secondrm.com or +65 9759 3233."
+          }
+        }
+      ]
+    }
+  ]
+}
     </script>
   </head>
 
-  <body background: #ececec !important;>
+  <body>
     <header class="site-header">
       <div class="container header-grid">
         <div class="brand">
-          <a href="index.html" class="brand-link" aria-label="Second Room home"></a>
+          <a href="/" class="brand-link" aria-label="Second Room home"></a>
         </div>
         <button
           class="menu-toggle"
@@ -190,7 +232,7 @@
         </button>
         <nav id="primary-nav" class="nav" aria-label="Primary">
           <button class="menu-close" aria-label="Close menu">✕</button>
-          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link active" href="/">Home</a>
           <a class="nav-link" href="about.html">About</a>
           <a class="nav-link" href="our-offerings.html">Our Offerings</a>
           <a class="nav-link" href="behind-sr.html">Behind SR</a>
@@ -202,13 +244,13 @@
     <main>
       <section class="hero">
         <div class="container">
-          <img class="hero-logo reveal" src="Assets/banner.jpg" alt="Second Room" />
+          <img class="hero-logo reveal" src="Assets/banner.jpg" alt="Second Room" width="379" height="73" decoding="async" fetchpriority="high" />
           <h1 class="hero-title reveal reveal-delay-1" style="font-family: 'Playfair Display', Georgia, serif !important; font-weight: 400 !important;">
             Where Trust Shapes Capital
           </h1>
 
           <figure class="hero-figure reveal reveal-delay-2">
-            <video src="Assets/hero-video.mp4" autoplay muted loop playsinline></video>
+            <video src="Assets/hero-video.mp4" poster="Assets/hero-image.jpg" width="480" height="480" autoplay muted loop playsinline preload="metadata"></video>
           </figure>
 
           <p class="lede reveal reveal-delay-3">
@@ -216,13 +258,43 @@
           </p>
           <p class="cta-wrap reveal reveal-delay-3">
             <a class="button" href="about.html" style="border: 1px solid #000; color: #000; text-decoration: underline;">About Us</a>
+            <a class="button" href="our-offerings.html" style="border: 1px solid #000; color: #000; text-decoration: underline; margin-left: 10px;">Our Offerings</a>
           </p>
+        </div>
+      </section>
+
+      <section class="section home-faq" aria-labelledby="faq-heading">
+        <div class="container">
+          <h2 id="faq-heading">Questions leaders ask</h2>
+          <div class="faq-list">
+            <h3>What does Second Room do?</h3>
+            <p>Second Room is a Singapore capital-markets advisory. We help leadership teams clarify strategy, frame conviction, and build the investor trust that supports how a business is understood, followed, and valued — from pre-IPO storytelling through listing and post-listing engagement.</p>
+            <h3>Who is Second Room for?</h3>
+            <p>Boards, founders, and listed-company leadership teams preparing for high-stakes investor communication, including SGX-listed companies building an institutional-grade investor relations operating system.</p>
+            <h3>What can you engage Second Room for?</h3>
+            <p>Three complementary practices: <a href="strategicadvisory.html">Strategic Advisory</a> for capital-markets IR counsel, <a href="sr-academy.html">SR Academy</a> for programmes such as <a href="corebuildlab.html">Core Build Lab</a>, and <a href="sr-studio.html">SR Studio</a> for roundtables, forums, and thought leadership. See <a href="our-offerings.html">our offerings</a> or <a href="contact.html">contact the team</a>.</p>
+            <h3>Where is Second Room based?</h3>
+            <p>Second Room Pte Ltd is based at 176 Orchard Road, The Centrepoint, #05-05, Singapore 238843. Enquiries: <a href="mailto:hello@secondrm.com">hello@secondrm.com</a> or +65 9759 3233.</p>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
+      <div class="container">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="our-offerings.html">Our Offerings</a>
+          <a href="strategicadvisory.html">Strategic Advisory</a>
+          <a href="sr-academy.html">SR Academy</a>
+          <a href="sr-studio.html">SR Studio</a>
+          <a href="corebuildlab.html">Core Build Lab</a>
+          <a href="behind-sr.html">Behind SR</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div>@ <span id="y"></span> Second Room Pte Ltd</div>
+      </div>
     </footer>
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();

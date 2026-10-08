@@ -1,36 +1,36 @@
-# Second Room — Where Trust Shapes Capital
+# Second Room
 
-> Second Room partners with leaders to prepare for capital-raising moments — from pre-IPO storytelling to post-listing investor engagement. Founded in Singapore by Grace Chen, the company blends strategy, narrative, and investor insight to help businesses communicate with clarity and conviction, and build trust with investors and markets.
+> Second Room is a Singapore capital-markets advisory that helps leadership teams clarify strategy, frame conviction, and build investor trust from pre-IPO storytelling through listing and post-listing engagement. Founded by Grace Chen, Second Room Pte Ltd combines advisory, learning programmes, and curated market conversations.
 
-Important notes:
-- Focused on high‑stakes capital-markets communication: pre‑IPO, listings, fundraises and ongoing investor engagement.
-- Distinct approach that integrates strategy, finance, and storytelling to shape trust with markets.
-- Three complementary offerings: advisory, learning frameworks, and collaborations.
+Second Room works with boards, founders, and listed-company teams on how a business is understood, followed, and valued. The work follows three movements: define the investment case, structure an investor-relations operating system, and reinforce that understanding across earnings, disclosure, and investor engagement.
 
-## Products
-- [Strategic Advisory](https://www.secondrm.com/strategicadvisory.html): Bespoke capital‑markets IR advisory (diagnostics, narrative architecture, rehearsal, alignment, confidence).
-- [SR Academy](https://www.secondrm.com/sr-academy.html): The Second Room System™ and practical programmes that scale clarity across teams.
-- [SR Studio](https://www.secondrm.com/sr-studio.html): Curated roundtables, forums, and thought‑leadership content that connect strategy, markets, and meaning.
-
-## Programmes
-- [Core Build Lab](https://www.secondrm.com/corebuildlab.html): Build a Market‑Ready IR Operating System — install the IR cadence institutions expect (mandate, calendar, disclosure rigor, and messaging that signals seriousness).
-
-## Perspectives
-- [Behind Second Room](https://www.secondrm.com/behind-sr.html): Founder background and perspective; experience leading IR at a major listed real‑asset manager.
-- [Our Offerings](https://www.secondrm.com/our-offerings.html): Overview of the platform's three pillars and how they work together.
-- [About Second Room](https://www.secondrm.com/about.html): The philosophy and structure behind our trust‑shaping approach.
-
-## Company
-- [About us](https://www.secondrm.com/about.html): Company background, mission, and approach.
-- [Contact](https://www.secondrm.com/contact.html): Email, phone, and address for engagements and enquiries.
-- [Work with us](https://www.secondrm.com/our-offerings.html): Explore services; programmes and collaborations tailored to each engagement.
-
-## Technical Documentation
-- [Design Documentation](DESIGN.md): Design conventions, visual language, and UI/UX logic.
-- [Project Context](grepp/context.md): Operational orientation and architectural overview.
-
+Second Room Pte Ltd is based at 176 Orchard Road, The Centrepoint, #05-05, Singapore 238843.
+Enquiries: hello@secondrm.com · +65 9759 3233
 Website: https://www.secondrm.com
 Sitemap: https://www.secondrm.com/sitemap.xml
-Company: Second Room Pte Ltd (Singapore)
-Contact: grace@secondrm.com | Tel: +65‑8065‑4655
-Last-Updated: 2026-04-29
+Expanded reference: https://www.secondrm.com/llms-full.txt
+Last-Updated: 2026-10-08
+
+## Offerings
+
+- [Our Offerings](https://www.secondrm.com/our-offerings.html): Overview of Strategic Advisory, SR Academy, and SR Studio, and how the three practices work together.
+- [Strategic Advisory](https://www.secondrm.com/strategicadvisory.html): Bespoke capital-markets IR advisory covering diagnostic and positioning, narrative and disclosure systems, earnings and event readiness, market engagement, and AI interpretability.
+- [SR Academy](https://www.secondrm.com/sr-academy.html): Practical programmes that install investor-relations discipline, including Core Build Lab and the Strategic IR Foundation workshop with SGlistcos.
+- [SR Studio](https://www.secondrm.com/sr-studio.html): Executive roundtables, investor forums, thought-leadership media, and multi-partner convenings that connect strategy, capital, and meaning.
+
+## Programmes
+
+- [Core Build Lab](https://www.secondrm.com/corebuildlab.html): A 4-session, in-company build over 4–6 weeks (S$8,500) for SGX-listed teams to install mandate, cadence, equity story, disclosure discipline, and rehearsal readiness. Delivered live in Singapore or online.
+- [Register interest](https://www.secondrm.com/register.html): Registration form for the Core Build Lab programme.
+
+## Company
+
+- [Home](https://www.secondrm.com/): Second Room — Where Trust Shapes Capital.
+- [About Second Room](https://www.secondrm.com/about.html): Philosophy and structure of the trust-shaping approach: define the investment case, structure the IR operating system, and reinforce market understanding.
+- [Behind Second Room](https://www.secondrm.com/behind-sr.html): Founder Grace Chen, former Head of Group Investor Relations at CapitaLand Investment, and the Second Room Circle of senior practitioners.
+- [Contact](https://www.secondrm.com/contact.html): Email hello@secondrm.com, telephone +65 9759 3233, and the Orchard Road office in Singapore.
+
+## Optional
+
+- [Expanded reference](https://www.secondrm.com/llms-full.txt): Longer plain-language summaries of each public page for answer engines.
+- [Sitemap](https://www.secondrm.com/sitemap.xml): Index of public pages.

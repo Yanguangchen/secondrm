@@ -24,55 +24,129 @@
       content="The philosophy and structure behind Second Room's trust-shaping approach to capital-markets communication — built for boards, founders, and listed-company IR teams."
     />
     <meta name="twitter:image" content="https://www.secondrm.com/Assets/og-image.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="fonts/GlacialIndifference-Regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <link rel="canonical" href="https://www.secondrm.com/about.html" />
-    <meta
-      name="keywords"
-      content="Second Room, Second Room Pte Ltd, Grace Chen, investor relations advisory, IR advisory Singapore, capital markets advisory, capital markets communications, IPO readiness, pre-IPO storytelling, post-listing investor engagement, SGX listed company IR, SGX Value Unlock, Equip Grant, investor narrative, equity story, disclosure discipline, earnings readiness, analyst engagement, investor targeting, market feedback, AI interpretability, corporate communications, strategic communications, crisis communications, thought leadership, executive roundtables, investor forums, SR Academy, SR Studio, Strategic Advisory, Core Build Lab, Institutional-Grade IR, Market-Ready IR Operating System"
-    />
+    <meta property="og:url" content="https://www.secondrm.com/about.html" />
+    <meta property="og:site_name" content="Second Room" />
+    <meta property="og:locale" content="en_SG" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebPage",
-            "@id": "https://www.secondrm.com/about.html#webpage",
-            "url": "https://www.secondrm.com/about.html",
-            "name": "About — Second Room",
-            "description": "About Second Room, a Singapore strategy platform for founders, leaders, and institutions preparing for capital-raising moments.",
-            "isPartOf": {
-              "@id": "https://www.secondrm.com/#website"
-            },
-            "about": {
-              "@id": "https://www.secondrm.com/#organization"
-            }
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://www.secondrm.com/about.html#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.secondrm.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "About",
-                "item": "https://www.secondrm.com/about.html"
-              }
-            ]
-          }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.secondrm.com/#organization",
+      "name": "Second Room",
+      "legalName": "Second Room Pte Ltd",
+      "slogan": "Where Trust Shapes Capital",
+      "url": "https://www.secondrm.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.secondrm.com/Assets/icon.png",
+        "width": 1080,
+        "height": 1080
+      },
+      "image": "https://www.secondrm.com/Assets/og-image.jpg",
+      "description": "Second Room partners with leaders to prepare for capital-raising moments, from pre-IPO storytelling to post-listing investor engagement.",
+      "email": "hello@secondrm.com",
+      "telephone": "+65-9759-3233",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "176 Orchard Road, The Centrepoint, #05-05",
+        "addressLocality": "Singapore",
+        "postalCode": "238843",
+        "addressCountry": "SG"
+      },
+      "areaServed": [
+        "Singapore",
+        "Asia"
+      ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://www.secondrm.com/#grace-chen",
+        "name": "Grace Chen",
+        "jobTitle": "Founder & Principal",
+        "url": "https://www.secondrm.com/behind-sr.html",
+        "sameAs": "https://linkedin.com/in/grace-chen-a678b535",
+        "worksFor": {
+          "@id": "https://www.secondrm.com/#organization"
+        }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Business enquiries",
+        "email": "hello@secondrm.com",
+        "telephone": "+65-9759-3233",
+        "areaServed": "SG",
+        "availableLanguage": [
+          "en"
         ]
+      },
+      "knowsAbout": [
+        "Investor relations",
+        "Capital markets communications",
+        "IPO readiness",
+        "Disclosure discipline",
+        "Investor engagement"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.secondrm.com/#website",
+      "url": "https://www.secondrm.com/",
+      "name": "Second Room",
+      "description": "Capital-markets advisory for leaders preparing for pre-IPO, listing, and post-listing investor engagement.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.secondrm.com/#organization"
       }
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.secondrm.com/about.html#webpage",
+      "url": "https://www.secondrm.com/about.html",
+      "name": "About — Second Room",
+      "description": "The philosophy and structure behind Second Room's trust-shaping approach to capital-markets communication — built for boards, founders, and listed-company IR teams.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.secondrm.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.secondrm.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.secondrm.com/about.html#breadcrumb"
+      },
+      "dateModified": "2026-10-08",
+      "about": {
+        "@id": "https://www.secondrm.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.secondrm.com/about.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.secondrm.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://www.secondrm.com/about.html"
+        }
+      ]
+    }
+  ]
+}
     </script>
     <style>
       @media (max-width: 768px) {
@@ -89,8 +163,8 @@
     <header class="site-header">
       <div class="container header-grid">
         <div class="brand">
-          <a href="index.html" class="brand-link" aria-label="Second Room home">
-            <img class="brand-logo" src="Assets/banner.jpg" alt="Second Room" />
+          <a href="/" class="brand-link" aria-label="Second Room home">
+            <img class="brand-logo" src="Assets/banner.jpg" alt="Second Room" width="379" height="73" decoding="async" />
           </a>
         </div>
         <button
@@ -103,28 +177,25 @@
         </button>
         <nav id="about-nav" class="nav" aria-label="Primary">
           <button class="menu-close" aria-label="Close menu">✕</button>
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About</a>
-          <a class="nav-link active" href="our-offerings.html">Our Offerings</a>
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link active" href="about.html">About</a>
+          <a class="nav-link" href="our-offerings.html">Our Offerings</a>
           <a class="nav-link" href="behind-sr.html">Behind SR</a>
           <a class="nav-link" href="contact.html">Contact</a>
         </nav>
       </div>
     </header>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">About</span>
+    </nav>
 
     <section class="banner">
-      <video
-        class="banner-bg"
-        src="Assets/clarity-stream.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-      ></video>
       <div class="container banner-inner">
         <div class="reveal">
           <h1>About<br />Second Room</h1>
-          <img class="mark-img" src="Assets/door.png" alt="Door icon" />
+          <img class="mark-img" src="Assets/door.png" alt="Door icon" width="945" height="945" decoding="async" />
         </div>
         <div class="reveal reveal-delay-1">
           <p style="font-weight: 500 !important">
@@ -154,7 +225,7 @@
         </h2>
         <div class="grid-2" style="padding: 4% !important">
           <div class="lead reveal">
-            <p style="font-size: 100%" font-weight: 680;>
+            <p style="font-size: 100%;">
               <strong>Second Room</strong> is built around how companies are understood by the market — from defining the core investment case, to embedding it across reporting cycles and investor interactions.
             </p>
           </div>
@@ -163,8 +234,7 @@
               <img
                 class="strategy-icon"
                 src="Assets/shape.png"
-                alt="Define icon"
-              />
+                alt="Define icon" width="256" height="256" decoding="async" loading="lazy" />
               <div>
                 <div class="item-title">Define — Clarifying the Investment Case</div>
                 <p class="muted">
@@ -176,8 +246,7 @@
               <img
                 class="strategy-icon"
                 src="Assets/equip.png"
-                alt="Structure icon"
-              />
+                alt="Structure icon" width="256" height="256" decoding="async" loading="lazy" />
               <div>
                 <div class="item-title">Structure — Building the IR Operating System</div>
                 <p class="muted">
@@ -189,8 +258,7 @@
               <img
                 class="strategy-icon"
                 src="Assets/curate.png"
-                alt="Reinforce icon"
-              />
+                alt="Reinforce icon" width="256" height="256" decoding="async" loading="lazy" />
               <div>
                 <div class="item-title">Reinforce — Sustaining Market Understanding</div>
                 <p class="muted">
@@ -203,8 +271,22 @@
       </div>
     </section>
 
+        <p class="related-links">Next: <a href="our-offerings.html">our offerings</a>, <a href="behind-sr.html">the people behind Second Room</a>, and <a href="contact.html">contact</a>.</p>
     <footer>
-      <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
+      <div class="container">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="our-offerings.html">Our Offerings</a>
+          <a href="strategicadvisory.html">Strategic Advisory</a>
+          <a href="sr-academy.html">SR Academy</a>
+          <a href="sr-studio.html">SR Studio</a>
+          <a href="corebuildlab.html">Core Build Lab</a>
+          <a href="behind-sr.html">Behind SR</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div>@ <span id="y"></span> Second Room Pte Ltd</div>
+      </div>
     </footer>
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();

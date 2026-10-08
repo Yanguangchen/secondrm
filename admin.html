@@ -4,14 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Console — Second Room</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://www.secondrm.com/admin.html" />
     <link rel="icon" href="Assets/icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="Assets/icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="fonts/GlacialIndifference-Regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <style>
       .admin-wrap {
@@ -177,8 +175,8 @@
     <header class="site-header">
       <div class="container header-grid">
         <div class="brand">
-          <a href="index.html" class="brand-link" aria-label="Second Room home">
-            <img class="brand-logo" src="Assets/banner.jpg" alt="Second Room" />
+          <a href="/" class="brand-link" aria-label="Second Room home">
+            <img class="brand-logo" src="Assets/banner.jpg" alt="Second Room" width="379" height="73" decoding="async" />
           </a>
         </div>
         <button
@@ -191,7 +189,7 @@
         </button>
         <nav id="primary-nav" class="nav" aria-label="Primary">
           <button class="menu-close" aria-label="Close menu">✕</button>
-          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="/">Home</a>
           <a class="nav-link" href="our-offerings.html">Our Offerings</a>
           <a class="nav-link" href="contact.html">Contact</a>
         </nav>
@@ -290,7 +288,20 @@
     </main>
 
     <footer>
-      <div class="container">@ <span id="y"></span> Second Room Pte Ltd</div>
+      <div class="container">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="our-offerings.html">Our Offerings</a>
+          <a href="strategicadvisory.html">Strategic Advisory</a>
+          <a href="sr-academy.html">SR Academy</a>
+          <a href="sr-studio.html">SR Studio</a>
+          <a href="corebuildlab.html">Core Build Lab</a>
+          <a href="behind-sr.html">Behind SR</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div>@ <span id="y"></span> Second Room Pte Ltd</div>
+      </div>
     </footer>
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
