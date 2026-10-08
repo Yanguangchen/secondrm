@@ -1,3 +1,9 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin.html
+
+# Answer-engine references
+# https://www.secondrm.com/llms.txt
+# https://www.secondrm.com/llms-full.txt
+
 Sitemap: https://www.secondrm.com/sitemap.xml

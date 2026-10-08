@@ -1,0 +1,111 @@
+# Second Room — expanded reference
+
+> Plain-language summaries of the public Second Room website for answer engines. Canonical pages are listed in https://www.secondrm.com/llms.txt. Facts below match the pages on https://www.secondrm.com as of 2026-10-08.
+
+## Home
+
+URL: https://www.secondrm.com/
+
+Second Room’s line is “Where Trust Shapes Capital.” The firm helps leadership teams clarify strategy, frame conviction, and build the market trust that supports how a business is understood, followed, and valued.
+
+The three public practices are Strategic Advisory, SR Academy, and SR Studio. The company is Second Room Pte Ltd, Singapore.
+
+## About
+
+URL: https://www.secondrm.com/about.html
+
+Second Room is built around how companies are understood by the market. The approach has three parts:
+
+- Define — clarify a credible investment case grounded in strategy, capital allocation, and performance drivers.
+- Structure — translate that case into a system across results materials, disclosures, and investor engagement.
+- Reinforce — support management through earnings and other key moments, including digital and AI visibility where relevant.
+
+The audience is boards, founders, and listed-company investor-relations teams.
+
+## Our Offerings
+
+URL: https://www.secondrm.com/our-offerings.html
+
+Three pillars:
+
+- Strategic Advisory — ongoing capital-markets and IR advisory. Leadership teams clarify positioning, anticipate investor questions, and strengthen how the business is understood in moments that shape confidence and valuation. Page: https://www.secondrm.com/strategicadvisory.html
+- SR Academy — programmes that build investor-relations and capital-markets foundations, including Core Build Lab. Page: https://www.secondrm.com/sr-academy.html
+- SR Studio — conversations, forums, and content, from curated sessions to podcasts, connecting strategy, capital, and perspective. Page: https://www.secondrm.com/sr-studio.html
+
+## Strategic Advisory
+
+URL: https://www.secondrm.com/strategicadvisory.html
+
+Capital markets IR advisory. Workstreams:
+
+- Diagnostic & Positioning — assess investor perception, positioning gaps, and valuation drivers, then define the investment case.
+- Narrative & Disclosure System — carry the investment case through results materials, disclosures, and investor communication, including clarity for AI-driven interpretation.
+- Earnings & Event Readiness — prepare leadership for earnings, analyst engagement, and announcements, including Q&A.
+- Market Engagement & Feedback — support ongoing investor engagement and interpret market feedback.
+- AI Interpretability & Visibility — make key drivers, risks, and positioning understandable when they are surfaced to investors in AI-driven environments.
+
+## SR Academy
+
+URL: https://www.secondrm.com/sr-academy.html
+
+Learning and frameworks. Current programmes:
+
+- Institutional Grade IR: Core Build Lab — an SGX Value Unlock Equip programme. A 4-session in-company build to clarify capital logic, align investor positioning, strengthen disclosure discipline, and install a repeatable IR operating system. Details: https://www.secondrm.com/corebuildlab.html. Register: https://www.secondrm.com/register.html
+- The Strategic IR Foundation: A Practical Framework to Start Right — a half-day workshop in collaboration with SGlistcos on investor behaviour, valuation dynamics, targeting, and engagement rhythm. External page: https://sglistcos.com/value-unlock
+
+## Core Build Lab
+
+URL: https://www.secondrm.com/corebuildlab.html
+
+Title: Build an Institutional-Grade Investor Relations Operating System in 4–6 Weeks.
+
+A 4-session, in-company build for SGX-listed teams. It installs mandate, cadence, equity story, disclosure discipline, and rehearsal readiness, using the company’s own numbers and announcements.
+
+At a glance:
+
+- Programme fee: S$8,500. The page also notes an early-bird of 15% off for engagements confirmed by 30 January 2026.
+- Format: 4 × 2-hour sessions across 4–6 weeks.
+- Delivery: live at the client’s Singapore office, or live online.
+- Participants: CEO or CFO plus IR and finance leads, up to 4 people.
+
+Eligible SGX-listed companies may apply for the SGX Value Unlock Equip Grant. Second Room is a panel service provider for that grant. Register interest at https://www.secondrm.com/register.html or email hello@secondrm.com.
+
+## Register interest
+
+URL: https://www.secondrm.com/register.html
+
+Form for teams registering interest in Core Build Lab. It is the conversion page linked from the programme and from SR Academy.
+
+## SR Studio
+
+URL: https://www.secondrm.com/sr-studio.html
+
+Thought leadership and collaborations with corporates and institutions:
+
+- Executive roundtables and investor forums.
+- Thought-leadership content and media, including newsletters, podcasts, and editorial pieces.
+- Multi-partner event concepting and curation.
+- Corporate transformation and purpose storytelling.
+
+## Behind Second Room
+
+URL: https://www.secondrm.com/behind-sr.html
+
+Founder and principal Grace Chen is a strategist with nearly two decades in investor relations and capital-markets communication. She was Head of Group Investor Relations at CapitaLand Investment from 2018 to 2025, including the S$11 billion Ascendas-Singbridge merger and the 2021 listing of CapitaLand Investment. LinkedIn: https://linkedin.com/in/grace-chen-a678b535
+
+The Second Room Circle:
+
+- David Lum — equity research and market insights. More than 25 years as a sell-side equity analyst covering Singapore. https://linkedin.com/in/david-lum
+- Uantchern Loh — stakeholder communications, governance, and sustainability. https://linkedin.com/in/uantchern-loh
+- Chuo Cher Shing — legal, governance, and board matters. More than 14 years in corporate legal advisory and governance for Singapore-listed entities.
+- Brenda Ng — investor relations. More than 15 years in investor relations and communications. https://www.linkedin.com/in/brenda-ng-3b391922
+
+## Contact
+
+URL: https://www.secondrm.com/contact.html
+
+Second Room Pte Ltd
+176 Orchard Road, The Centrepoint, #05-05, Singapore 238843
+Email: hello@secondrm.com
+Telephone: +65 9759 3233
+Website: https://www.secondrm.com
